@@ -24,7 +24,7 @@ ul {
     visibility: hidden;
 }
 ul li {
-    padding: 15px 0px 15px 0px;
+    padding: 15px 10px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -381,7 +381,7 @@ justify-content: space-between;
 /* Cálculos Individualizados */
 .contenedor .menu .calculosIndividualizados ul{
     display: grid;
-    grid-template-columns: 3fr 2fr 3fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(11, 1fr);
     background-color: RGBA(255, 255, 255, 1.00);
     position: absolute;
@@ -427,8 +427,8 @@ justify-content: space-between;
     flex-direction: row;
     justify-content: space-between;
 }
-.contenedor .menu .calculosIndividualizados .celda_9_1 , .contenedor .menu .calculosIndividualizados .celda_9_2 {
-    border-bottom: RGBA(217, 225, 242, 1.00);
+.contenedor .menu .calculosIndividualizados .celda_8_1 , .contenedor .menu .calculosIndividualizados .celda_8_2 {
+    border-top: 2px solid RGBA(32, 55, 100, 1.00);
 }
 .contenedor .menu .calculosIndividualizados .celda_10_1 {
     grid-row: 10/12;

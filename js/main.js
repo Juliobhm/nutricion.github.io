@@ -50,7 +50,7 @@ $('.boton-menu').click(function () {
     if ($(this).hasClass('fa-bars')){
         $(this).removeClass('fa-bars').addClass('fa-times');
         
-        $('.menuPrincipal ul').css({'visibility': 'visible'}).animate({'width': '250px'}, 400);
+        $('.menuPrincipal ul').css({'visibility': 'visible'}).animate({'width': '100%'}, 400);
 
     }
     else {
@@ -90,15 +90,7 @@ $('.menuPrincipal  ul li').click(function(){
 
 });
 function abrirVista(vista){
-    // $(vista).parent().siblings('.desplegable').css({'visibility': 'hidden'})
-    // $(vista).css({'height':'auto','opacity':'1','visibility':'initial'});
-    // $('.encabezado .boton-menu').removeClass('fa-times').addClass('fa-bars'); 
 
-
-        // $(vista).css({'visibility': 'visible'}, function(){
-        //     $(vista).animate({'width': '100%', 'visibility': 'visible'}, 1000)
-            
-        // });
         $('.contenedor .sobreponer').css({'display':'block'});
         $(vista).css({'visibility': 'visible'}).animate({'width': '100%', 'visibility': 'visible'}, 400);
  

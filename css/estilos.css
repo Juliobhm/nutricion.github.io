@@ -1,0 +1,448 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'roboto';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+ }
+ * {
+    box-sizing: border-box;
+  }
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+body {
+    height: 100%;
+    width: 100%;
+}
+.contenedor {
+    width: 100vw;
+    max-width: 500px;
+    border: 1px solid black;
+    margin: 5px auto;
+    position: relative;
+    background-color: RGBA(127, 127, 127, 1.00);
+    box-sizing: border-box;
+    border-left: 4px solid RGBA(56, 83, 105, 1.00);
+}
+.sombreado_0 {
+    background-color: RGBA(32, 55, 100, 1.00);
+    font-size: 18px;
+    color: white;
+    text-align: center;
+}
+.sombreado_1 {
+    text-align: left;
+    background-color: RGBA(217, 225, 242, 1.00);
+}
+.sombreado_2 {
+    text-align: left;
+    background-color: RGBA(142, 169, 219, 1.00);
+    color: white;
+    text-align: center;
+}
+.centro {
+    text-align: center;
+}
+
+.contenedor .sobreponer{
+    display:none;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.fa-times:hover {
+    cursor: pointer;
+}
+
+/* Encabezado */
+.contenedor .menu .encabezado  ul{
+    display: grid;
+    grid-template-columns: 1fr 9fr ;
+    grid-template-rows: 1fr;
+    height: 10vh;
+    background-color: RGBA(56, 82, 105, 1.00);
+    align-items: center;
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+}
+.contenedor .menu .encabezado  ul i{
+    font-size: 22px;
+}
+.contenedor .menu .encabezado  ul i:hover{
+   cursor: pointer;
+}
+
+/* Menu Principal */
+.contenedor .menu .menuPrincipal  ul{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 6fr;
+    background-color: white;
+    align-items: center;
+    color: grey;
+    text-align: left;
+    width: 0px;
+    position: absolute;
+    top: calc(10vh + 3px);
+    left:0px;
+    visibility: hidden;
+    z-index: 100;
+}
+
+.contenedor .menu .menuPrincipal  ul li{
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    grid-template-rows: 1fr;
+    width: 100%;
+    padding: 25px 0px;
+    border-bottom: 1px solid RGBA(132, 151, 174, 1.00);
+    font-weight: 200;
+    color: grey;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.contenedor .menu .menuPrincipal  ul li span{
+    margin-left: 5px;
+
+}
+.contenedor .menu .menuPrincipal ul li:hover{
+    background-color: RGBA(132, 151, 174, 1.00);
+    color: white;
+    cursor: pointer;
+    border: 1px solid grey;
+}
+
+/* Datos del paciente */
+.contenedor .menu .datosPaciente ul{
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(7, 1fr);
+    background-color: RGBA(255, 255, 255, 1.00);
+    position: absolute;
+    top: calc(10vh + 25px);
+    left:0px;
+    width: 0px;
+    font-weight: 200;
+    color: grey;
+    border: 1px solid grey;
+    z-index: 1000;
+    visibility: hidden;
+}
+.contenedor .menu .datosPaciente  ul li{
+    box-sizing: border-box;
+    padding: 15px 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.contenedor .menu .datosPaciente .celda_1_1 {
+grid-column: 1/3;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+
+/* Requerimientos nutricionales */
+.contenedor .menu .requerimientosTeoricos ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(11, 1fr);
+    background-color: RGBA(255, 255, 255, 1.00);
+    position: absolute;
+    top: calc(10vh + 25px);
+    left:0px;
+    width: 0px;
+    font-weight: 200;
+    color: grey;
+    border: 1px solid grey;
+    z-index: 1000;
+    visibility: hidden;
+}
+.contenedor .menu .requerimientosTeoricos  ul li{
+    padding: 15px 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.contenedor .menu .requerimientosTeoricos .celda_1_1 {
+    grid-column: 1/4;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.contenedor .menu .requerimientosTeoricos .celda_2_1 {
+    grid-column: 1/4;
+
+}
+.contenedor .menu .requerimientosTeoricos .celda_3_1 {
+    grid-row: 3/5;
+    display: flex;
+    align-items: center;
+}
+.contenedor .menu .requerimientosTeoricos .celda_5_1 {
+    grid-row: 5/7;
+    display: flex;
+    align-items: center;
+}   
+.contenedor .menu .requerimientosTeoricos .celda_7_1 {
+    grid-row: 7/9;
+    display: flex;
+    align-items: center;
+}
+.contenedor .menu .requerimientosTeoricos .celda_9_1 {
+    grid-column: 1/-1;
+}
+.contenedor .menu .requerimientosTeoricos .celda_9_1 {
+    grid-column: 1/-1;
+}
+.contenedor .menu .requerimientosTeoricos .celda_10_2 {
+    grid-column: 2/3;
+}
+.contenedor .menu .requerimientosTeoricos .celda_10_3 {
+    grid-column: 3/4;
+}
+.contenedor .menu .requerimientosTeoricos .celda_11_2 {
+    grid-column: 2/3;
+}   
+.contenedor .menu .requerimientosTeoricos .celda_11_3 {
+    grid-column: 3/4;
+}
+
+/* Prescripción */
+.contenedor .menu .prescripcion ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(7, 1fr);
+    background-color: RGBA(255, 255, 255, 1.00);
+    position: absolute;
+    top: calc(10vh + 25px);
+    left:0px;
+    width: 0px;
+    font-weight: 200;
+    color: grey;
+    border: 1px solid grey;
+    z-index: 1000;
+    visibility: hidden;
+}
+.contenedor .menu .prescripcion  ul li{
+    padding: 15px 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.contenedor .menu .prescripcion .celda_1_1 {
+grid-column: 1/-1;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+.contenedor .menu .prescripcion .celda_2_1 {
+    grid-column: 1/-1;
+}
+.contenedor .menu .prescripcion .celda_3_1 {
+    grid-column: 1/-1;
+}
+.contenedor .menu .prescripcion .celda_4_1 {
+    grid-column: 1/3;
+}
+.contenedor .menu .prescripcion .celda_4_1 span{
+    margin-left: 20px;
+}
+.contenedor .menu .prescripcion .celda_4_3 {
+    grid-column: 3/4;
+}
+.contenedor .menu .prescripcion .celda_5_1 {
+    grid-column: 1/3;
+}
+.contenedor .menu .prescripcion .celda_5_1 span{
+    margin-left: 20px;
+}
+.contenedor .menu .prescripcion .celda_5_3 {
+    grid-column: 3/4;
+}
+.contenedor .menu .prescripcion .celda_6_1 {
+    grid-row: 6/8;
+    display: flex;
+    align-items: center;
+}
+.contenedor .menu .prescripcion .celda_7_2 {
+    grid-column: 2/3;
+}
+.contenedor .menu .prescripcion .celda_8_1 {
+    grid-column: 1/-1;
+}
+.contenedor .menu .prescripcion .celda_9_1 {
+    grid-column: 1/3;
+}
+.contenedor .menu .prescripcion .celda_9_1 span {
+    margin-left: 20px;
+}
+.contenedor .menu .prescripcion .celda_9_3 {
+    grid-column: 3/4;
+}
+.contenedor .menu .prescripcion .celda_10_1 {
+    grid-column: 1/3;
+}
+.contenedor .menu .prescripcion .celda_10_1 span{
+    margin-left: 20px;
+}
+.contenedor .menu .prescripcion .celda_10_3 {
+    grid-column: 3/4;
+}
+.contenedor .menu .prescripcion .celda_11_1 {
+    grid-row: 11/13;
+    display: flex;
+    align-items: center;
+}
+.contenedor .menu .prescripcion .celda_12_2 {
+    grid-column: 2/3;
+}
+.contenedor .menu .prescripcion .celda_13_1 {
+    grid-column: 1/-1;
+}
+.contenedor .menu .prescripcion .celda_14_1 {
+    grid-column: 1/3;
+}
+.contenedor .menu .prescripcion .celda_14_1 span {
+    margin-left: 20px;
+}
+.contenedor .menu .prescripcion .celda_14_3 {
+    grid-column: 3/4;
+}
+.contenedor .menu .prescripcion .celda_15_1 {
+    grid-column: 1/3;
+}
+.contenedor .menu .prescripcion .celda_15_1 span{
+    margin-left: 20px;
+}
+.contenedor .menu .prescripcion .celda_15_3 {
+    grid-column: 3/4;
+}
+.contenedor .menu .prescripcion .celda_16_1 {
+    grid-row: 16/18;
+    display: flex;
+    align-items: center;
+}
+.contenedor .menu .prescripcion .celda_17_2 {
+    grid-column: 2/3;
+}
+.contenedor .menu .prescripcion .celda_18_1 {
+    grid-column: 1/-1;
+}
+.contenedor .menu .prescripcion .celda_19_1 {
+    grid-column: 1/3;
+}
+.contenedor .menu .prescripcion .celda_19_1 span {
+    margin-left: 20px;
+}
+.contenedor .menu .prescripcion .celda_19_3 {
+    grid-column: 3/4;
+}
+.contenedor .menu .prescripcion .celda_20_1 {
+    grid-column: 1/3;
+}
+.contenedor .menu .prescripcion .celda_20_1 span{
+    margin-left: 20px;
+}
+.contenedor .menu .prescripcion .celda_20_3 {
+    grid-column: 3/4;
+}
+.contenedor .menu .prescripcion .celda_21_1 {
+    grid-row: 21/23;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor .menu .prescripcion .celda_22_2 {
+    grid-column: 2/3;
+}
+
+
+
+/* Cálculos Individualizados */
+.contenedor .menu .calculosIndividualizados ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(11, 1fr);
+    background-color: RGBA(255, 255, 255, 1.00);
+    position: absolute;
+    top: calc(10vh + 25px);
+    left:0px;
+    width: 0px;
+    font-weight: 200;
+    color: grey;
+    border: 1px solid grey;
+    z-index: 1000;
+    visibility: hidden;
+}
+.contenedor .menu .calculosIndividualizados  ul li{
+    padding: 15px 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.contenedor .menu .calculosIndividualizados .celda_1_1 {
+grid-column: 1/-1;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+.contenedor .menu .calculosIndividualizados .celda_2_3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.contenedor .menu .calculosIndividualizados .celda_3_3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.contenedor .menu .calculosIndividualizados .celda_4_1 {
+    grid-column: 1/3;
+}
+.contenedor .menu .calculosIndividualizados .celda_5_1 {
+    grid-column: 1/3;
+}
+.contenedor .menu .calculosIndividualizados .celda_6_1 {
+    grid-row: 6/8;
+    display: flex;
+    align-items: center;
+}
+.contenedor .menu .calculosIndividualizados .celda_8_1, .contenedor .menu .calculosIndividualizados .celda_9_1 {
+    grid-column: 1/3;
+}
+.contenedor .menu .calculosIndividualizados .celda_8_2
+,.contenedor .menu .calculosIndividualizados .celda_9_2 
+ {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.contenedor .menu .calculosIndividualizados .celda_10_1 {
+    grid-row: 10/12;
+    display: flex;
+    align-items: center;
+
+}

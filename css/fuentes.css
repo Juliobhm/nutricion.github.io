@@ -1,0 +1,39 @@
+/* roboto-regular - latin */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fuentes/roboto/roboto-v20-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Roboto'), local('Roboto-Regular'),
+         url('../fuentes/roboto/roboto-v20-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fuentes/roboto/roboto-v20-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fuentes/roboto/roboto-v20-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fuentes/roboto/roboto-v20-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fuentes/roboto/roboto-v20-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+  }
+/* aleo-regular - latin */
+@font-face {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fuentes/aleo/aleo-v3-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Aleo Regular'), local('Aleo-Regular'),
+         url('../fuentes/aleo/aleo-v3-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fuentes/aleo/aleo-v3-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fuentes/aleo/aleo-v3-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fuentes/aleo/aleo-v3-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fuentes/aleo/aleo-v3-latin-regular.svg#Aleo') format('svg'); /* Legacy iOS */
+  }
+/* lacquer-regular - latin */
+@font-face {
+  font-family: 'Lacquer';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fuentes/lacquer/lacquer-v1-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Lacquer Regular'), local('Lacquer-Regular'),
+       url('../fuentes/lacquer/lacquer-v1-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fuentes/lacquer/lacquer-v1-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fuentes/lacquer/lacquer-v1-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fuentes/lacquer/lacquer-v1-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fuentes/lacquer/lacquer-v1-latin-regular.svg#Lacquer') format('svg'); /* Legacy iOS */
+}

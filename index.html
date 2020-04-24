@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="sp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="theme-color" content="#317EFB"/>
+    <title>Nutrición</title>
+    
+    <link rel="apple-touch-icon" href="images/icons/Nutricion-512.png">
+  
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <meta name="apple-mobile-web-app-title" content="Nutrición">
+
+
+
+    <script src="js/app.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/teclado.js"></script>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/iconosAwesome/css/all.css">
+    <link rel="stylesheet" href="css/fuentes.css">
+    <!-- <link href="fuentes/roboto/roboto-v20-latin-regular.ttf" rel="stylesheet"> -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div class="contenedor">
+        <ul class="menu">
+            <li class="encabezado">
+                <ul>
+                   
+                    <li class="celda_1_1 encabezado_nutriciones"><i class="boton-menu fas fa-bars"></i></li>
+                    <li class="celda_1_2 encabezado_requerimientos">
+                        <span>Nutrición en el Paciente Crítico</span> 
+                    </li>
+               
+                </ul>
+            </li>
+            <li class="menuPrincipal">
+                <ul>
+                    <li><span>Nutriciones</span>
+                        <i class="boton-submenu fas fa-arrow-right"></i>
+                    </li>
+                    <li class="datosPaciente"><span>Datos del paciente</span>
+                        <i class="boton-submenu fas fa-arrow-right"></i>
+                    </li>
+                    <li><span>Requerimientos teóricos</span>
+                        <i class="boton-submenu fas fa-arrow-right"></i>
+                    </li>
+                    <li><span>Prescripción</span>
+                        <i class="boton-submenu fas fa-arrow-right"></i>
+                    </li>
+                    <li><span>Cálculos individualizados</span>
+                        <i class="boton-submenu fas fa-arrow-right"></i>
+                    </li>
+                    <li><span>Protocolo</span>
+                        <i class="boton-submenu fas fa-arrow-right"></i>
+                    </li>
+                </ul>
+
+
+
+
+
+
+            </li>
+            <li class="desplegable datosPaciente">
+             
+                    <ul>
+                        <li class="celda_1_1 sombreado_0">
+                            <span>Datos de Paciente</span>
+                            <i class="fas fa-times"></i>
+                        </li>
+                   
+                        <li class="celda_2_1 sombreado_1 ">Sexo</li>
+                        <li class="celda_2_2 sombreado_1 sexoValor centro verde">
+                            <span id="sexo" class="sexoActual sexoElegido">Hombre</span>
+                        </li>
+                
+                        <li class="celda_3_1 sombreado_1 izquierda ">
+                            <span>Peso (kg)</span></li>
+                        <li class="celda_3_2 sombreado_1 centro verde">
+                     
+                            <i class="fas fa-arrow-alt-circle-up"></i>
+                            <span class="modificable pesoValor centro">70</span>
+                            <i class="fas fa-arrow-alt-circle-down"></i>
+                        </li>
+                        <li class="celda_4_1 sombreado_1 izquierda">
+                            <span>Talla (cm)</span></li>
+                        <li class="celda_4_2 sombreado_1 centro verde">
+                            <span class="modificable tallaValor">
+                                <span>170</span></span>
+                        
+                        </li>
+                     
+                        <li class="celda_6_1 izquierda">
+                            <span>IMC (m2)</span></li>
+                        <li class="celda_6_2 imcValor centro">
+                            <span>25</span> 
+                        </li>
+                        <li class="celda_7_1 izquierda">
+                            <span>Peso Ideal</span></li>
+                        <li class="celda_7_2 pesoIdealValor centro">
+                            <span>78</span> 
+                        </li>
+                        <li class="celda_8_1 izquierda">
+                            <span>Peso Ajustado</span></li>
+                        <li class="celda_8_2 pesoAjustadoValor centro">
+                            <span>71</span> 
+                        </li>
+                    </ul>
+       
+            </li>
+            <li class="desplegable requerimientosTeoricos">
+           
+                    <ul>
+                        <li class="celda_1_1 sombreado_0">
+                            <span>Requerimientos teóricos</span>
+                            <i class="fas fa-times"></i>
+                        </li>
+                        <li class="celda_2_1 sombreado_2">
+                            <span>Fase inicial</span>
+                        </li>
+                            <li class="celda_3_1">
+                            <span>Día 1</span>
+                        </li>
+                        <li class="celda_3_2">
+                            <span>Calorías</span>
+                        </li>
+                        <li class="celda_3_3 req_cal_dia_1 centro">
+                            <span>700</span>
+                        </li>                     
+                        <li class="celda_4_2">
+                            <span>Proteínas</span>
+                        </li>
+                        <li class="celda_4_3 req_prot_dia_1 centro">
+                            <span>70</span>
+                        </li>                   
+                       <li class="celda_5_1 sombreado_1"><span>Día 2</span>
+                        </li>
+                        <li class="celda_5_2 sombreado_1">
+                            <span>Calorías</span>
+                        </li>                       
+                        <li class="celda_5_3 req_cal_dia_2 sombreado_1 centro">
+                            <span>1202</span>
+                        </li>
+                        <li class="celda_6_2 sombreado_1">
+                            <span>Proteínas</span>
+                        </li> 
+                        <li class="celda_6_3 req_prot_dia_2 sombreado_1 centro">
+                            <span>91</span>
+                        </li>
+                        <li class="celda_7_1">
+                            <span>Días 3 - 7</span>
+                        </li>                    
+                        <li class="celda_7_2">
+                            <span>Calorías</span>
+                        </li>                   
+                        <li class="celda_7_3 req_cal_dia_3 centro">
+                            <span>1400</span>
+                        </li>
+                        <li class="celda_8_2">
+                            <span>Proteínas</span>
+                        </li> 
+                        <li class="celda_8_3 req_prot_dia_3 centro">
+                            <span>105</span>
+                        </li>
+                        <li class="celda_9_1 sombreado_2">
+                            <span>Fase estable</span>
+                        </li>                       
+                        <li class="celda_10_2">
+                            <span>Calorías</span>
+                        </li> 
+                        <li class="celda_10_3 centro">
+                            <span>2100</span>
+                        </li>
+                        <li class="celda_11_2">
+                            <span>Proteínas</span>
+                        </li> 
+                        <li class="celda_11_3 req_prot_estable centro">
+                            <span>126</span>
+                        </li>
+                    </ul>
+                
+            </li>
+
+            <li class="desplegable prescripcion">
+                <ul>
+                    <li class="celda_1_1 sombreado_0">
+                        <span>Prescripción</span>
+                        <i class="fas fa-times"></i>
+                    </li>
+                    <li class="celda_2_1 sombreado_2">
+                        <span>Fase inicial</span>
+                    </li>
+                    <li class="celda_3_1">
+                        <span>Día 1</span>
+                    </li>                   
+                    <li class="celda_4_1">
+                        <span>Glucerna (mL)</span>
+                    </li>
+                    <li class="celda_4_3 presc_mL_dia_1 centro">
+                        <span>700</span>
+                    </li>
+                    <li class="celda_5_1">
+                        <span>Sobres de Fresubin</span>
+                    </li>
+                    <li class="celda_5_3 presc_sobres_dia_1 centro">
+                        <span>5</span>
+                    </li>
+                    <li class="celda_6_1">
+                        <span>Administrado</span>
+                    </li>
+                    <li class="celda_6_2">
+                        <span>Calorías</span>
+                    </li>
+                    <li class="celda_6_3 centro admin_Cal_dia_1">
+                        <span>1400</span>
+                    </li>
+                    <li class="celda_7_2">
+                        <span>Proteinas (g)</span>
+                    </li>
+                    <li class="celda_7_3 centro admin_Prot_dia_1">
+                        <span>123</span>
+                    </li>
+
+
+
+                    <li class="celda_8_1 sombreado_1">
+                        <span>Día 2</span>
+                    </li>                   
+                    <li class="celda_9_1 sombreado_1">
+                        <span>Glucerna (mL)</span>
+                    </li>
+                    <li class="celda_9_3 presc_mL_dia_2 centro sombreado_1">
+                        <span>700</span>
+                    </li>
+                    <li class="celda_10_1 sombreado_1">
+                        <span>Sobres de Fresubin</span>
+                    </li>
+                    <li class="celda_10_3 presc_sobres_dia_2 centro sombreado_1">
+                        <span>5</span>
+                    </li>
+
+                    <li class="celda_11_1 sombreado_1">
+                        <span>Administrado</span>
+                    </li>
+                    <li class="celda_11_2 sombreado_1">
+                        <span>Calorías</span>
+                    </li>
+                    <li class="celda_11_3 admin_Cal_dia_2 centro sombreado_1">
+                        <span>1456</span>
+                    </li>
+                    <li class="celda_12_2 sombreado_1">
+                        <span>Proteinas (g)</span>
+                    </li>
+                    <li class="celda_12_3 admin_Prot_dia_2 centro sombreado_1">
+                        <span>345</span>
+                    </li>
+
+
+                    <li class="celda_13_1">
+                        <span>Día 3</span>
+                    </li>                   
+                    <li class="celda_14_1">
+                        <span>Glucerna (mL)</span>
+                    </li>
+                    <li class="celda_14_3 presc_mL_dia_3 centro">
+                        <span>700</span>
+                    </li>
+                    <li class="celda_15_1">
+                        <span>Sobres de Fresubin</span>
+                    </li>
+                    <li class="celda_15_3 presc_sobres_dia_3 centro">
+                        <span>5</span>
+                    </li>
+                    <li class="celda_16_1">
+                        <span>Administrado</span>
+                    </li>
+                    <li class="celda_16_2">
+                        <span>Calorías</span>
+                    </li>
+                    <li class="celda_16_3 admin_Cal_dia_3 centro">
+                        <span>1456</span>
+                    </li>
+                    <li class="celda_17_2">
+                        <span>Proteinas (g)</span>
+                    </li>
+                    <li class="celda_17_3 admin_Prot_dia_3 centro">
+                        <span>234</span>
+                    </li>
+
+                    <li class="celda_18_1 sombreado_2 sombreado_2">
+                        <span>Fase estable</span>
+                    </li>
+                    <li class="celda_19_1 sombreado_1">
+                        <span>Glucerna (mL)</span>
+                    </li>
+                    <li class="celda_19_3 presc_mL_estable centro sombreado_1">
+                        <span>700</span>
+                    </li>
+                    <li class="celda_20_1 sombreado_1">
+                        <span>Sobres de Fresubin</span>
+                    </li>
+                    <li class="celda_20_3 presc_sobres_estable centro sombreado_1">
+                        <span>5</span>
+                    </li>
+                    <li class="celda_21_1 sombreado_1">
+                        <span>Administrado</span>
+                    </li>
+                    <li class="celda_21_2 sombreado_1">
+                        <span>Calorías</span>
+                    </li>
+                    <li class="celda_21_3 admin_Cal_estable sombreado_1 centro">
+                        <span>2134</span>
+                    </li>
+                    <li class="celda_23_2 sombreado_1">
+                        <span>Proteinas (g)</span>
+                    </li>
+                    <li class="celda_23_3 admin_Prot_estable sombreado_1 centro">
+                        <span>343</span>
+                    </li>
+
+                   
+                </ul>
+              
+            </li>
+
+            <li class="desplegable calculosIndividualizados">
+            <ul>
+                <li class="celda_1_1 sombreado_0">
+                    <span>Cálculos individualizados</span>
+                    <i class="fas fa-times"></i>
+                </li>
+                <li class="celda_2_1 sombreado_1">
+                    <span>cal/kg/día</span>
+                </li>
+                <li class="celda_2_3 pesoCalorias sombreado_1">
+                    <span>Peso real</span>
+                </li>
+                <li class="celda_2_3 caloriasKg sombreado_1 centro">
+                    <i class="calorias flecha flechaArriba fas fa-arrow-up"></i>
+                    <span>20</span>
+                    <i class="calorias flecha flechaAbajo fas fa-arrow-down"></i>
+                </li> 
+                
+                <li class="celda_3_1 sombreado_1">
+                    <span>Prot/kg/día (g)</span>
+                </li>
+                <li class="celda_3_3 pesoProteinas sombreado_1">
+                    <span>Peso real</span>
+                </li>
+                <li class="celda_3_3 caloriasKg sombreado_1 centro">
+                    <i class="proteinas flecha flechaArriba fas fa-arrow-up"></i>
+                    <span>20</span>
+                    <i class="proteinas flecha flechaAbajo fas fa-arrow-down"></i>
+                </li> 
+                <li class="celda_4_1">
+                    <span>Glucerna (mL)</span>
+                </li>
+                <li class="celda_4_3 presc_sobres_indiv_1 centro">
+                    <span>1850</span>
+                </li>
+                <li class="celda_5_1">
+                    <span>Sobres Fresubin</span>
+                </li>
+                <li class="celda_5_3 presc_mL_indiv_1 centro">
+                    <span>1850</span>
+                </li>
+                <li class="celda_6_1">
+                    <span>Administrado</span>
+                </li>
+                <li class="celda_6_2">
+                    <span>Calorías</span>
+                </li>
+                <li class="celda_6_3 admin_cal_indiv_1 centro">
+                    <span>2200</span>
+                </li>
+                <li class="celda_7_2">
+                    <span>Proteínas (g)</span>
+                </li>
+                <li class="celda_7_3 admin_prot_indiv_1 centro">
+                    <span>123</span>
+                </li>
+                <li class="celda_8_1 sombreado_1">
+                    <span>Volumen Glucerna</span>
+                </li>
+                <li class="celda_8_2 presc_mL_indiv_2 sombreado_1">
+                    <i class="nutricion flecha flechaArriba fas fa-arrow-up"></i>
+                    <span>1200</span>
+                    <i class="nutricion flecha flechaAbajo fas fa-arrow-down"></i>
+                </li>
+                <li class="celda_9_1 sombreado_1">
+                    <span>Sobres de Fresubin</span>
+                </li>
+                <li class="celda_9_2 presc_sobres_indiv_2 sombreado_1">
+                    <i class="proteinas flecha flechaArriba fas fa-arrow-up"></i>
+                    <span>12</span>
+                    <i class="proteinas flecha flechaAbajo fas fa-arrow-down"></i>
+                </li>
+                <li class="celda_10_1">
+                    <span>Administrado</span>
+                </li>
+                <li class="celda_10_2">
+                    <span>Calorías</span>
+                </li>
+                <li class="celda_10_3 admin_cal_indiv_2 centro">
+                    <span>2200</span>
+                </li>
+                <li class="celda_11_2">
+                    <span>Proteínas (g)</span>
+                </li>
+                <li class="celda_11_3 admin_prot_indiv_2 centro">
+                    <span>123</span>
+                </li>
+                
+
+            </ul>
+              
+            </li>
+        </ul>
+        <div class="sobreponer">
+
+        </div>
+    </div>
+</body>
+</html>

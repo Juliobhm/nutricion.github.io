@@ -82,9 +82,9 @@ a {
 
 }
 
-.contenedor .menu .encabezado  ul i{
+.contenedor .menu .encabezado  ul li i{
     font-size: calc(1.4rem + 1vmin);
-    margin-left: 15px;
+    margin-left: 10px;
 }
 .contenedor .menu .encabezado  ul i:hover{
    cursor: pointer;

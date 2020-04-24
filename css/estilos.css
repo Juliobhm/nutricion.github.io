@@ -84,7 +84,7 @@ a {
 }
 
 .contenedor .menu .encabezado  ul i{
-    font-size: calc(1.2em + 1vh);
+    font-size: calc(1.4em + 1vmax);
 }
 .contenedor .menu .encabezado  ul i:hover{
    cursor: pointer;
@@ -97,7 +97,7 @@ a {
     grid-template-rows: 6fr;
     background-color: white;
     align-items: center;
-    font-size: calc(3em + 1vh);
+    font-size: calc(1em + 1vmin);
     color: grey;
     text-align: left;
     width: 0px;

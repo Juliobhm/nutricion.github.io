@@ -7,7 +7,7 @@ html, body {
     font-family: 'roboto';
     font-weight: 400;
     font-size: 16px;
-    line-height: 18px;
+    line-height: 16px;
  }
  * {
     box-sizing: border-box;
@@ -184,7 +184,6 @@ font-size: calc(1.2rem + 1vmin);
     left:0px;
     width: 0px;
     font-size: calc(1.2rem + 1vmin);
-
     font-weight: 200;
     color: grey;
     border: 1px solid grey;

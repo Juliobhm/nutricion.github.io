@@ -68,7 +68,7 @@ a {
     display: grid;
     grid-template-columns: 1fr 9fr ;
     grid-template-rows: 1fr;
-    height: 10vh;
+    height: 13vh;
     background-color: RGBA(56, 82, 105, 1.00);
     align-items: center;
     font-size: calc(1.2rem + 1vmin);
@@ -83,7 +83,8 @@ a {
 }
 
 .contenedor .menu .encabezado  ul i{
-    font-size: calc(1.25rem + 1vmin);
+    font-size: calc(1.3rem + 1vmin);
+    margin-left: 15px;
 }
 .contenedor .menu .encabezado  ul i:hover{
    cursor: pointer;

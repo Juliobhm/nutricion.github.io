@@ -143,6 +143,8 @@ a {
     top: calc(10vh + 25px);
     left:0px;
     width: 0px;
+    font-size: calc(1.1rem + 1vmin);
+
     font-weight: 200;
     color: grey;
     border: 1px solid grey;

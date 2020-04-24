@@ -35,7 +35,7 @@ var controlInicial = 0;
 //     calculos();
 
     $('.menuPrincipal ul li').hover(function () {
-
+        // over
         $(this).find('li').css({'color':'white', 'cursor': 'pointer'});
         
     }, function () {

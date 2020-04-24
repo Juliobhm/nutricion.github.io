@@ -22,13 +22,13 @@ a {
 }
 
 .contenedor {
-    width: 100%;
+    width: 100vw;
     max-width: 500px;
-    border: 4px solid black;
+    height: 100vh;
     margin: 5px auto;
     position: relative;
-    background-color: RGBA(127, 127, 127, 1.00);
-    border-left: 4px solid black;
+    background-color: rgb(192, 188, 188);
+    border-left: 4px solid RGBA(56, 82, 105, 1.00);
     font-size: calc(0.7rem + 1vh);
 }
 .sombreado_0 {
@@ -82,7 +82,7 @@ a {
 
 }
 .contenedor .menu .encabezado  ul i{
-    font-size: calc(0.9rem + 1vh);
+    font-size: calc(0.7rem + 1vh);
 }
 .contenedor .menu .encabezado  ul i:hover{
    cursor: pointer;

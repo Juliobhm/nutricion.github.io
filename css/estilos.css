@@ -189,7 +189,7 @@ font-size: calc(1.2rem + 1vmin);
     visibility: hidden;
 }
 .contenedor .menu .requerimientosTeoricos  ul li{
-    padding: 10px 10px;
+    padding: 7px 10px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;

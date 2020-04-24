@@ -16,7 +16,14 @@ ul {
     margin: 0;
     padding: 0;
     font-size: calc(1.2rem + 1vmin);
+    font-weight: 200;
+    color: grey;
+    width: 0px;
+    border: 1px solid grey;
+    z-index: 1000;
+    visibility: hidden;
 
+    
 }
 a {
     text-decoration: none;
@@ -80,13 +87,13 @@ a {
     height: 13vh;
     background-color: RGBA(56, 82, 105, 1.00);
     align-items: center;
-    font-size: calc(1.2rem + 1vmin);
     color: white;
     text-align: center;
     width: 100%;
     position: absolute;
     top: 0px;
     left: 0px;
+    visibility: visible;
 
 
 }
@@ -106,7 +113,6 @@ a {
     grid-template-rows: 6fr;
     background-color: white;
     align-items: center;
-    font-size: calc(1.2rem + 1vmin);
     color: grey;
     text-align: left;
     width: 0px;
@@ -152,12 +158,7 @@ a {
     top: calc(10vh + 25px);
     left:0px;
     width: 0px;
-    font-size: calc(1.2rem + 1vmin);
-    font-weight: 200;
-    color: grey;
-    border: 1px solid grey;
-    z-index: 1000;
-    visibility: hidden;
+
 }
 .contenedor .menu .datosPaciente  ul li{
     padding: 15px 10px;
@@ -182,13 +183,7 @@ justify-content: space-between;
     position: absolute;
     top: calc(10vh + 25px);
     left:0px;
-    width: 0px;
-    font-size: calc(1.2rem + 1vmin);
-    font-weight: 200;
-    color: grey;
-    border: 1px solid grey;
-    z-index: 1000;
-    visibility: hidden;
+
 }
 .contenedor .menu .requerimientosTeoricos  ul li{
     padding: 9px 10px;
@@ -251,12 +246,7 @@ justify-content: space-between;
     position: absolute;
     top: calc(10vh + 25px);
     left:0px;
-    width: 0px;
-    font-weight: 200;
-    color: grey;
-    border: 1px solid grey;
-    z-index: 1000;
-    visibility: hidden;
+
 }
 .contenedor .menu .prescripcion  ul li{
     padding: 15px 10px;
@@ -403,12 +393,7 @@ justify-content: space-between;
     position: absolute;
     top: calc(10vh + 25px);
     left:0px;
-    width: 0px;
-    font-weight: 200;
-    color: grey;
-    border: 1px solid grey;
-    z-index: 1000;
-    visibility: hidden;
+
 }
 .contenedor .menu .calculosIndividualizados  ul li{
     padding: 15px 10px;

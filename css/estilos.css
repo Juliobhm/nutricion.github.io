@@ -83,7 +83,7 @@ a {
 }
 
 .contenedor .menu .encabezado  ul i{
-    font-size: calc(1.3rem + 1vmin);
+    font-size: calc(1.25rem + 1vmin);
 }
 .contenedor .menu .encabezado  ul i:hover{
    cursor: pointer;

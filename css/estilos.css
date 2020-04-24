@@ -42,6 +42,7 @@ a {
 .sombreado_2 {
     text-align: left;
     background-color: RGBA(142, 169, 219, 1.00);
+    font-weight: 800;
     color: white;
     text-align: center;
 }
@@ -106,7 +107,7 @@ a {
     text-align: left;
     width: 0px;
     position: absolute;
-    top: calc(10vh + 3px);
+    top: calc(13vh + 5px);
     left:0px;
     visibility: hidden;
     z-index: 100;
@@ -117,7 +118,7 @@ a {
     grid-template-columns: 8fr 1fr;
     grid-template-rows: 1fr;
     width: 100%;
-    padding: 20px 0px;
+    padding: 25px 0px;
     border-bottom: 1px solid RGBA(132, 151, 174, 1.00);
     font-weight: 200;
     color: grey;
@@ -148,7 +149,6 @@ a {
     left:0px;
     width: 0px;
     font-size: calc(1.2rem + 1vmin);
-
     font-weight: 200;
     color: grey;
     border: 1px solid grey;
@@ -156,7 +156,6 @@ a {
     visibility: hidden;
 }
 .contenedor .menu .datosPaciente  ul li{
-    box-sizing: border-box;
     padding: 15px 10px;
     white-space: nowrap;
     text-overflow: ellipsis;

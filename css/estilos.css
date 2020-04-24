@@ -72,6 +72,7 @@ a {
     height: 10vh;
     background-color: RGBA(56, 82, 105, 1.00);
     align-items: center;
+    font-size: calc(0.9em + 1vh);
     color: white;
     text-align: center;
     width: 100%;
@@ -81,11 +82,9 @@ a {
 
 
 }
-.contenedor .menu .encabezado  ul{
-    font-size: calc(0.6rem + 1vh);
-}
+
 .contenedor .menu .encabezado  ul i{
-    font-size: calc(0.8rem + 1vh);
+    font-size: calc(1.2em + 1vh);
 }
 .contenedor .menu .encabezado  ul i:hover{
    cursor: pointer;
@@ -98,6 +97,7 @@ a {
     grid-template-rows: 6fr;
     background-color: white;
     align-items: center;
+    font-size: calc(3em + 1vh);
     color: grey;
     text-align: left;
     width: 0px;
@@ -122,7 +122,7 @@ a {
     overflow: hidden;
 }
 .contenedor .menu .menuPrincipal  ul li span{
-    margin-left: 5px;
+    margin-left: 10px;
 
 }
 .contenedor .menu .menuPrincipal ul li:hover{

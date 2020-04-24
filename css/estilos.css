@@ -240,7 +240,7 @@ justify-content: space-between;
 /* Prescripción */
 .contenedor .menu .prescripcion ul{
     display: grid;
-    grid-template-columns: 4fr 3fr 2fr;
+    grid-template-columns: 5fr 3fr 2fr;
     grid-template-rows: repeat(7, 1fr);
     background-color: RGBA(255, 255, 255, 1.00);
     position: absolute;

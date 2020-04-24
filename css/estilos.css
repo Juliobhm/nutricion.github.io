@@ -31,13 +31,14 @@ a {
 }
 .sombreado_0 {
     background-color: RGBA(32, 55, 100, 1.00);
-    font-size: 18px;
+    font-size: calc(1.2rem + 1vmin);
     color: white;
     text-align: center;
 }
 .sombreado_1 {
     text-align: left;
     background-color: RGBA(217, 225, 242, 1.00);
+
 }
 .sombreado_2 {
     text-align: left;
@@ -47,6 +48,10 @@ a {
 }
 .centro {
     text-align: center;
+}
+.negrita {
+    font-weight: 800;
+    color: black;
 }
 
 .contenedor .sobreponer{
@@ -164,6 +169,8 @@ grid-column: 1/3;
 display: flex;
 flex-direction: row;
 justify-content: space-between;
+font-size: calc(1.2rem + 1vmin);
+
 }
 
 /* Requerimientos nutricionales */
@@ -176,6 +183,8 @@ justify-content: space-between;
     top: calc(10vh + 25px);
     left:0px;
     width: 0px;
+    font-size: calc(1.2rem + 1vmin);
+
     font-weight: 200;
     color: grey;
     border: 1px solid grey;

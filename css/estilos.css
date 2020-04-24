@@ -175,7 +175,7 @@ font-size: calc(1.2rem + 1vmin);
 .contenedor .menu .requerimientosTeoricos ul{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(11, 1fr);
+    grid-template-rows: 3fr repeat(10, 2fr);
     background-color: RGBA(255, 255, 255, 1.00);
     position: absolute;
     top: calc(10vh + 25px);
@@ -189,7 +189,7 @@ font-size: calc(1.2rem + 1vmin);
     visibility: hidden;
 }
 .contenedor .menu .requerimientosTeoricos  ul li{
-    padding: 15px 10px;
+    padding: 10px 10px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -199,6 +199,7 @@ font-size: calc(1.2rem + 1vmin);
     grid-column: 1/4;
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
 }
 .contenedor .menu .requerimientosTeoricos .celda_2_1 {

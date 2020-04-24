@@ -50,7 +50,7 @@ $('.boton-menu').click(function () {
     if ($(this).hasClass('fa-bars')){
         $(this).removeClass('fa-bars').addClass('fa-times');
         
-        $('.menuPrincipal ul').css({'visibility': 'visible'}).animate({'width': 'calc(100% - 6px'}, 400);
+        $('.menuPrincipal ul').css({'visibility': 'visible'}).animate({'width': '98%'}, 400);
 
     }
     else {

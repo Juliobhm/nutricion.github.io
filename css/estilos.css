@@ -25,10 +25,9 @@ a {
     width: 100vw;
     max-width: 500px;
     height: 100vh;
-    margin: 5px auto;
+    margin: 0px auto;
     position: relative;
     background-color: rgb(192, 188, 188);
-    border-left: 4px solid RGBA(56, 82, 105, 1.00);
     font-size: calc(0.7rem + 1vh);
 }
 .sombreado_0 {

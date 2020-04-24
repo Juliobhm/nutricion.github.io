@@ -31,6 +31,7 @@ body {
     background-color: RGBA(127, 127, 127, 1.00);
     box-sizing: border-box;
     border-left: 4px solid RGBA(56, 83, 105, 1.00);
+    font-size: calc(0.7rem + 1vh);
 }
 .sombreado_0 {
     background-color: RGBA(32, 55, 100, 1.00);

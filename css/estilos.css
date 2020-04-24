@@ -6,7 +6,7 @@ html, body {
     padding: 0;
     font-family: 'roboto';
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 18px;
  }
  * {
@@ -28,7 +28,6 @@ a {
     margin: 0px auto;
     position: relative;
     background-color: rgb(192, 188, 188);
-    font-size: calc(0.7rem + 1vh);
 }
 .sombreado_0 {
     background-color: RGBA(32, 55, 100, 1.00);
@@ -72,7 +71,7 @@ a {
     height: 10vh;
     background-color: RGBA(56, 82, 105, 1.00);
     align-items: center;
-    font-size: calc(0.9em + 1vh);
+    font-size: calc(1.2rem + 1vmin);
     color: white;
     text-align: center;
     width: 100%;
@@ -84,7 +83,7 @@ a {
 }
 
 .contenedor .menu .encabezado  ul i{
-    font-size: calc(1.4em + 1vmax);
+    font-size: calc(1.3rem + 1vmin);
 }
 .contenedor .menu .encabezado  ul i:hover{
    cursor: pointer;
@@ -97,7 +96,7 @@ a {
     grid-template-rows: 6fr;
     background-color: white;
     align-items: center;
-    font-size: calc(1em + 1vmin);
+    font-size: calc(1.2rem + 1vmin);
     color: grey;
     text-align: left;
     width: 0px;

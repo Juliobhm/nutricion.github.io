@@ -374,7 +374,7 @@ justify-content: space-between;
 /* Cálculos Individualizados */
 .contenedor .menu .calculosIndividualizados ul{
     display: grid;
-    grid-template-columns: 3fr 2fr 3fr;
+    grid-template-columns: 4fr 6fr 7fr;
     grid-template-rows: repeat(11, 1fr);
     background-color: RGBA(255, 255, 255, 1.00);
     position: absolute;

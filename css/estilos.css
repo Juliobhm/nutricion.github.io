@@ -11,7 +11,7 @@ html, body {
  * {
     box-sizing: border-box;
   }
-ul {
+.menu ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -23,7 +23,7 @@ ul {
     z-index: 1000;
     visibility: hidden;
 }
-ul li {
+.menu ul li {
     padding: 10px 10px;
     color: grey;
     white-space: nowrap;
@@ -149,6 +149,54 @@ a {
     cursor: pointer;
     border: 1px solid grey;
 }
+ 
+ /* Tipos de nutrición */
+ .tiposNutricion {
+    position: absolute;
+    top: calc(10vh + 55px);
+    left:0px;
+    width: 100%;
+}
+.tiposNutricion ul {
+    display: block;
+    background-color: white;
+}
+.tiposNutricion ul li{
+    border-bottom: 1px solid grey;
+}
+.tiposNutricion .nombreNutricion {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 10px;
+
+}
+.tiposNutricion .nombreNutricion i{
+    width: 20px;
+
+}
+.tiposNutricion .caracteristicasNutricion {
+    width: 100%;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 0px;
+    visibility: hidden;
+}
+
+
+.tiposNutricion .caracteristicasNutricion * {
+    width: 100%;
+    text-align: center;
+
+}
+
+
 
 /* Datos del paciente */
 .contenedor .menu .datosPaciente ul{

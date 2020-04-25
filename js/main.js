@@ -59,8 +59,6 @@ $('.boton-menu').click(function () {
             $('.menuPrincipal ul').css({'visibility': 'hidden'})
 
         });
-
-    
     };
 });
 
@@ -71,7 +69,11 @@ $('.menuPrincipal  ul li').click(function(){
     console.log('submentu: ',submenu);
 
     vista = "";
-    if(submenu === 'Datos del paciente'){
+    if(submenu === 'Nutriciones'){
+        vista = '.contenedor .menu .tiposNutricion ul';
+        }
+
+    else if(submenu === 'Datos del paciente'){
     vista = '.contenedor .menu .datosPaciente ul';
     }
     else if(submenu === 'Requerimientos teóricos'){
@@ -91,7 +93,7 @@ $('.menuPrincipal  ul li').click(function(){
 });
 function abrirVista(vista){
 
-        $('.contenedor .sobreponer').css({'display':'block'});
+        // $('.contenedor .sobreponer').css({'display':'block'});
         $(vista).css({'visibility': 'visible'}).animate({'width': '100%', 'visibility': 'visible'}, 400);
  
         $('.menuPrincipal ul').animate({'width': '0px'}, 400, function(){
@@ -114,19 +116,34 @@ function abrirVista(vista){
 // Cerrar las vistas con el icono
 
 $('.desplegable .fa-times').click(function(){
-    $('.contenedor .sobreponer').css({'display':'none'});
+    // $('.contenedor .sobreponer').css({'display':'none'});
     
-    $(vista).animate({'width': '0px', 'visibility': 'hidden'}, 300, function(){
-            $(vista).css({'visibility': 'hidden'}); 
+    $(vista).animate({'width': '0px', 'visibility': 'hidden'}, 300, function(){$(vista).css({'visibility': 'hidden'}); 
     } ); 
 
+    }); 
 
 
+    $('.boton-info').click(function () {
+            var informacion = $(this).parents('div').siblings('div');
+            console.log(informacion);
 
+        if ($(this).hasClass('fa-info')){
+            $(this).removeClass('fa-info').addClass('fa-times');
+            $(informacion).css({'visibility': 'visible'}).animate({'height': '80px'}, 200);
+    
+        }
+        else {
+            $(this).removeClass('fa-times').addClass('fa-info'); 
 
-})
-
-
+            $(informacion).animate({'height': '0px'}, 200, function(){
+                $(informacion).css({'visibility': 'hidden'})
+    
+            });
+    
+        
+        };
+    });
 
 // $('.menu .desplegable').click(function(e){
 //     e.preventDefault();

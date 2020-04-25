@@ -24,7 +24,8 @@ ul {
     visibility: hidden;
 }
 ul li {
-    padding: 15px 10px;
+    padding: 10px 10px;
+    color: grey;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -136,10 +137,7 @@ a {
     padding: 25px 0px;
     border-bottom: 1px solid RGBA(132, 151, 174, 1.00);
     font-weight: 200;
-    color: grey;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+
 }
 .contenedor .menu .menuPrincipal  ul li span{
     margin-left: 10px;
@@ -185,12 +183,7 @@ justify-content: space-between;
     left:0px;
 
 }
-.contenedor .menu .requerimientosTeoricos  ul li{
-    padding: 10px 10px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
+
 
 .contenedor .menu .requerimientosTeoricos .celda_1_1 {
     grid-column: 1/4;
@@ -381,7 +374,7 @@ justify-content: space-between;
 /* Cálculos Individualizados */
 .contenedor .menu .calculosIndividualizados ul{
     display: grid;
-    grid-template-columns: 5fr 3fr 2fr;
+    grid-template-columns: 3fr 2fr 3fr;
     grid-template-rows: repeat(11, 1fr);
     background-color: RGBA(255, 255, 255, 1.00);
     position: absolute;

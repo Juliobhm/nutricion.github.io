@@ -6,7 +6,7 @@ var nutriciones = [
         {nombre: "Glucerna", corCal: 1.5, corProt: 0.075},
         {nombre: "Oxepa", corCal: 1.5, corProt: 0.062}
         ];
-var nutricion = '';
+var nutricion = 'Glucerna';
 var indice = 0;
 var sexo = "Hombre";
 var peso = 70;
@@ -18,7 +18,6 @@ var pesoElegidoCal = 70;
 var pesoElegidoProt = 70;
 var proteinasKg = 2.0;
 var caloriasKg = 20;
-var nutricion = "";
 var corCal = 1.5;
 var corProt = 0.075;
 var requerimientosCal = [0,0,0,0,0,0];
@@ -34,7 +33,7 @@ var sobresNutricion = 5;
 var controlInicial = 0;
 
  $(document).ready(function(){
-    //calculos();
+    calculos();
 
 
 
@@ -143,7 +142,7 @@ Pulsar el icono de información de las nutriciones
     });
 
 /* =======================================
-ChecK sobre el tipo de nutrición
+Check sobre el tipo de nutrición
 ======================================= */
 $('.fa-check').click(function (e) { 
     e.preventDefault();
@@ -241,17 +240,20 @@ Elección del peso para las necesidades
 inidividualizadas de calorías.
 ======================================== */
 $('.pesoCalorias').click(function(){
-    if ($('.pesoCalorias').text() === "Peso real") {
+    if ($('.pesoCalorias > span').text() === "Peso real") {
+    console.log('click peso');
+
+
         pesoElegidoCal = pesoIdeal
-        $('.pesoCalorias').text("Peso ideal");
+        $('.pesoCalorias > span').text("Peso ideal");
     }
-    else if ($('.pesoCalorias').text() === "Peso ideal") {
+    else if ($('.pesoCalorias > span').text() === "Peso ideal") {
         pesoElegidoCal = pesoAjustado;
-        $('.pesoCalorias').text("Peso ajustado");
+        $('.pesoCalorias > span').text("Peso ajustado");
     }
-    else if ($('.pesoCalorias').text() === "Peso ajustado") {
+    else if ($('.pesoCalorias > span').text() === "Peso ajustado") {
         pesoElegidoCal = peso;
-        $('.pesoCalorias').text("Peso real");
+        $('.pesoCalorias > span').text("Peso real");
     };
     console.log(pesoElegidoCal);
     calculos();
@@ -262,17 +264,17 @@ Elección del peso para las necesidades
 inidividualizadas de proteínas.
 ======================================== */
 $('.pesoProteinas').click(function(){
-    if ($('.pesoProteinas').text() === "Peso real") {
+    if ($('.pesoProteinas span').text() === "Peso real") {
         pesoElegidoProt = pesoIdeal
-        $('.pesoProteinas').text("Peso ideal");
+        $('.pesoProteinas span').text("Peso ideal");
     }
-    else if ($('.pesoProteinas').text() === "Peso ideal") {
+    else if ($('.pesoProteinas span').text() === "Peso ideal") {
         pesoElegidoProt = pesoAjustado;
-        $('.pesoProteinas').text("Peso ajustado");
+        $('.pesoProteinas span').text("Peso ajustado");
     }
-    else if ($('.pesoProteinas').text() === "Peso ajustado") {
+    else if ($('.pesoProteinas span').text() === "Peso ajustado") {
         pesoElegidoProt = peso;
-        $('.pesoProteinas').text("Peso real");
+        $('.pesoProteinas span').text("Peso real");
     };
     calculos();
 });
@@ -375,6 +377,7 @@ function calculos () {
     /* =======================================
     Obtención del índice de la nutrición
     ======================================== */
+    console.log(nutricion);
     for(var i = 0; nutriciones.length -1; i++) {
         if (nutriciones[i].nombre === nutricion) {
             indice = i;
@@ -480,7 +483,7 @@ function calculos () {
     arr[index] = Math.round(item);
     });
 }
-    rellenarCampos();
+    //rellenarCampos();
 
 
     /* ======================================
@@ -488,50 +491,50 @@ function calculos () {
     datos calculados.
     ======================================== */
     function rellenarCampos() {
-        $('.pesoValor').text(peso);
-        $('.tallaValor').text(talla);
-        $('.imcValor').text(Math.round(imc*10)/10);
-        $('.pesoIdealValor').text(Math.round(pesoIdeal*10)/10);
-        $('.pesoAjustadoValor').text(Math.round(pesoAjustado*10)/10);
+        $('.pesoValor > span').text(peso);
+        $('.tallaValor > span').text(talla);
+        $('.imcValor > span').text(Math.round(imc*10)/10);
+        $('.pesoIdealValor > span').text(Math.round(pesoIdeal*10)/10);
+        $('.pesoAjustadoValor > span').text(Math.round(pesoAjustado*10)/10);
+    }
+    //     $('.req_cal_dia_1').text(requerimientosCal[0]);
+    //     $('.req_cal_dia_2').text(requerimientosCal[1]);
+    //     $('.req_cal_dia_3').text(requerimientosCal[2]);
+    //     $('.req_cal_estable').text(requerimientosCal[3]);
 
-        $('.req_cal_dia_1').text(requerimientosCal[0]);
-        $('.req_cal_dia_2').text(requerimientosCal[1]);
-        $('.req_cal_dia_3').text(requerimientosCal[2]);
-        $('.req_cal_estable').text(requerimientosCal[3]);
+    //     $('.req_prot_dia_1').text(requerimientosProt[0]);
+    //     $('.req_prot_dia_2').text(requerimientosProt[1]);
+    //     $('.req_prot_dia_3').text(requerimientosProt[2]);
+    //     $('.req_prot_estable').text(requerimientosProt[3]);
 
-        $('.req_prot_dia_1').text(requerimientosProt[0]);
-        $('.req_prot_dia_2').text(requerimientosProt[1]);
-        $('.req_prot_dia_3').text(requerimientosProt[2]);
-        $('.req_prot_estable').text(requerimientosProt[3]);
+    //     $('.presc_mL_dia_1').text(mlNutricion[0]);
+    //     $('.presc_mL_dia_2').text(mlNutricion[1]);
+    //     $('.presc_mL_dia_3').text(mlNutricion[2]);
+    //     $('.presc_mL_estable').text(mlNutricion[3]);
 
-        $('.presc_mL_dia_1').text(mlNutricion[0]);
-        $('.presc_mL_dia_2').text(mlNutricion[1]);
-        $('.presc_mL_dia_3').text(mlNutricion[2]);
-        $('.presc_mL_estable').text(mlNutricion[3]);
+    //     $('.presc_sobres_dia_1').text(sobresFresubin[0]);
+    //     $('.presc_sobres_dia_2').text(sobresFresubin[1]);
+    //     $('.presc_sobres_dia_3').text(sobresFresubin[2]);
+    //     $('.presc_sobres_estable').text(sobresFresubin[3]);
 
-        $('.presc_sobres_dia_1').text(sobresFresubin[0]);
-        $('.presc_sobres_dia_2').text(sobresFresubin[1]);
-        $('.presc_sobres_dia_3').text(sobresFresubin[2]);
-        $('.presc_sobres_estable').text(sobresFresubin[3]);
+    //     $('.admin_dia_1').text(administrado[0]);
+    //     $('.admin_dia_2').text(administrado[1]);
+    //     $('.admin_dia_3').text(administrado[2]);
+    //     $('.admin_estable').text(administrado[3]);
 
-        $('.admin_dia_1').text(administrado[0]);
-        $('.admin_dia_2').text(administrado[1]);
-        $('.admin_dia_3').text(administrado[2]);
-        $('.admin_estable').text(administrado[3]);
-
-        //Prescripcion por calorías y proteinas
-        $('.caloriasKg').text(caloriasKg.toFixed(0));
-        $('.proteinasKg').text(proteinasKg.toFixed(1));
-        $('.presc_mL_indiv_1').text(mlNutricion[4]);
-        $('.presc_sobres_indiv_1').text(sobresFresubin[4]);
-        $('.admin_indiv_1').text(administrado[4]);
+    //     //Prescripcion por calorías y proteinas
+    //     $('.caloriasKg').text(caloriasKg.toFixed(0));
+    //     $('.proteinasKg').text(proteinasKg.toFixed(1));
+    //     $('.presc_mL_indiv_1').text(mlNutricion[4]);
+    //     $('.presc_sobres_indiv_1').text(sobresFresubin[4]);
+    //     $('.admin_indiv_1').text(administrado[4]);
         
-        //Prescripción por mL y sobres
-        $('.presc_mL_indiv_2').text(mlNutricion[5]);
-        $('.presc_sobres_indiv_2').text(sobresFresubin[5]);
-        $('.admin_indiv_2').text(administrado[5]);
+    //     //Prescripción por mL y sobres
+    //     $('.presc_mL_indiv_2').text(mlNutricion[5]);
+    //     $('.presc_sobres_indiv_2').text(sobresFresubin[5]);
+    //     $('.admin_indiv_2').text(administrado[5]);
 
-    } 
+    // } 
 
 
 

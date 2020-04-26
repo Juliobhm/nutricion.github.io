@@ -7,17 +7,17 @@ html, body {
     font-family: 'roboto';
     font-weight: 400;
     font-size: 16px;
+    color: grey;
  }
  * {
     box-sizing: border-box;
   }
-.menu ul {
+ ul {
     list-style: none;
     margin: 0;
     padding: 0;
     font-size: calc(1.2rem + 1vmin);
     font-weight: 200;
-    color: grey;
     width: 0px;
     border: 1px solid grey;
     z-index: 1000;
@@ -25,11 +25,9 @@ html, body {
 }
 .menu ul li {
     padding: 10px 10px;
-    color: grey;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-
 }
 a {
     text-decoration: none;
@@ -52,7 +50,6 @@ a {
 .sombreado_1 {
     text-align: left;
     background-color: RGBA(217, 225, 242, 1.00);
-
 }
 .sombreado_2 {
     text-align: left;
@@ -85,7 +82,9 @@ a {
     cursor: pointer;
 }
 
-/* Encabezado */
+/*============================================ 
+Encabezado
+=========================================== */
 .contenedor .menu .encabezado  ul{
     display: grid;
     grid-template-columns: 1fr 9fr ;
@@ -105,14 +104,16 @@ a {
 }
 
 .contenedor .menu .encabezado  ul li i{
-    font-size: calc(1.4rem + 1vmin);
-    margin-left: 10px;
+    font-size: calc(2.0rem + 1vmin);
+    margin: 10px;
 }
 .contenedor .menu .encabezado  ul i:hover{
    cursor: pointer;
 }
 
-/* Menu Principal */
+/*============================================
+ Menu Principal 
+ ============================================*/
 .contenedor .menu .menuPrincipal  ul{
     display: grid;
     grid-template-columns: 1fr;
@@ -150,10 +151,12 @@ a {
     border: 1px solid grey;
 }
  
- /* Tipos de nutrición */
+ /*============================================
+  Tipos de nutrición
+  ===========================================*/
  .tiposNutricion {
     position: absolute;
-    top: calc(10vh + 55px);
+    top: calc(10vh + 35px);
     left:0px;
     width: 100%;
 }
@@ -163,28 +166,22 @@ a {
 }
 .tiposNutricion ul li{
     border-bottom: 1px solid grey;
+    padding: 20px 10px;
 }
-.tiposNutricion .nombreNutricion {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 10px;
-
-}
-.tiposNutricion .nombreNutricion i{
-    width: 20px;
-
-}
-.tiposNutricion .caracteristicasNutricion {
-    width: 100%;
-    padding-bottom: 10px;
+.tiposNutricion ul li div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    text-align: center;
+    text-align: center; 
+}
+
+.tiposNutricion .nombreNutricion i{
+    width: 25px;
+
+}
+.tiposNutricion .caracteristicasNutricion {
     height: 0px;
     visibility: hidden;
 }
@@ -195,10 +192,9 @@ a {
     text-align: center;
 
 }
-
-
-
-/* Datos del paciente */
+/*============================================
+Datos del paciente
+============================================*/
 .contenedor .menu .datosPaciente ul{
     box-sizing: border-box;
     display: grid;
@@ -220,7 +216,8 @@ flex-direction: row;
 justify-content: space-between;
 }
 
-/* Requerimientos nutricionales */
+/*============================================ Requerimientos nutricionales
+============================================ */
 .contenedor .menu .requerimientosTeoricos ul{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -475,5 +472,42 @@ justify-content: space-between;
     grid-row: 10/12;
     display: flex;
     align-items: center;
+}
 
+/* =====================================
+Teclado
+===================================== */
+.teclado {
+    position: absolute;
+    bottom: 20px;
+    left: 0px;
+    margin-left: 50%;;
+    transform: translateX(-50%);
+    padding: 3px;
+    width: 250px;
+    height: 0px;
+    visibility: hidden;
+    border: 1px solid grey;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: 3px;
+    column-gap: 3px;
+}
+.teclado .numero0 {
+    grid-column: 1/3;
+}
+.teclado .hecho {
+    grid-column: 1/3;
+}
+.teclado span {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid grey;
+    padding: 5px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

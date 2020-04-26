@@ -336,49 +336,49 @@ readers do not read off random characters that represent icons */
 .fa-archway:before {
   content: "\f557"; }
 
-.fa-arrow-alt-circle-down:before {
+.fa-chevron-alt-circle-down:before {
   content: "\f358"; }
 
-.fa-arrow-alt-circle-left:before {
+.fa-chevron-alt-circle-left:before {
   content: "\f359"; }
 
-.fa-arrow-alt-circle-right:before {
+.fa-chevron-alt-circle-right:before {
   content: "\f35a"; }
 
-.fa-arrow-alt-circle-up:before {
+.fa-chevron-alt-circle-up:before {
   content: "\f35b"; }
 
-.fa-arrow-circle-down:before {
+.fa-chevron-circle-down:before {
   content: "\f0ab"; }
 
-.fa-arrow-circle-left:before {
+.fa-chevron-circle-left:before {
   content: "\f0a8"; }
 
-.fa-arrow-circle-right:before {
+.fa-chevron-circle-right:before {
   content: "\f0a9"; }
 
-.fa-arrow-circle-up:before {
+.fa-chevron-circle-up:before {
   content: "\f0aa"; }
 
-.fa-arrow-down:before {
+.fa-chevron-down:before {
   content: "\f063"; }
 
-.fa-arrow-left:before {
+.fa-chevron-left:before {
   content: "\f060"; }
 
-.fa-arrow-right:before {
+.fa-chevron-right:before {
   content: "\f061"; }
 
-.fa-arrow-up:before {
+.fa-chevron-up:before {
   content: "\f062"; }
 
-.fa-arrows-alt:before {
+.fa-chevrons-alt:before {
   content: "\f0b2"; }
 
-.fa-arrows-alt-h:before {
+.fa-chevrons-alt-h:before {
   content: "\f337"; }
 
-.fa-arrows-alt-v:before {
+.fa-chevrons-alt-v:before {
   content: "\f338"; }
 
 .fa-artstation:before {
@@ -789,7 +789,7 @@ readers do not read off random characters that represent icons */
 .fa-carrot:before {
   content: "\f787"; }
 
-.fa-cart-arrow-down:before {
+.fa-cart-chevron-down:before {
   content: "\f218"; }
 
 .fa-cart-plus:before {
@@ -1074,7 +1074,7 @@ readers do not read off random characters that represent icons */
 .fa-compress-alt:before {
   content: "\f422"; }
 
-.fa-compress-arrows-alt:before {
+.fa-compress-chevrons-alt:before {
   content: "\f78c"; }
 
 .fa-concierge-bell:before {
@@ -1479,7 +1479,7 @@ readers do not read off random characters that represent icons */
 .fa-expand-alt:before {
   content: "\f424"; }
 
-.fa-expand-arrows-alt:before {
+.fa-expand-chevrons-alt:before {
   content: "\f31e"; }
 
 .fa-expeditedssl:before {
@@ -2454,7 +2454,7 @@ readers do not read off random characters that represent icons */
 .fa-list-ul:before {
   content: "\f0ca"; }
 
-.fa-location-arrow:before {
+.fa-location-chevron:before {
   content: "\f124"; }
 
 .fa-lock:before {
@@ -2463,16 +2463,16 @@ readers do not read off random characters that represent icons */
 .fa-lock-open:before {
   content: "\f3c1"; }
 
-.fa-long-arrow-alt-down:before {
+.fa-long-chevron-alt-down:before {
   content: "\f309"; }
 
-.fa-long-arrow-alt-left:before {
+.fa-long-chevron-alt-left:before {
   content: "\f30a"; }
 
-.fa-long-arrow-alt-right:before {
+.fa-long-chevron-alt-right:before {
   content: "\f30b"; }
 
-.fa-long-arrow-alt-up:before {
+.fa-long-chevron-alt-up:before {
   content: "\f30c"; }
 
 .fa-low-vision:before {

@@ -73,7 +73,7 @@ $('.menuPrincipal ul li').hover(function () {
 Elección de la vista en la barra lateral.
 Envía a la función abrir vista.
 ======================================== */
-$('.menuPrincipal  ul li').click(function(){
+$('.menuPrincipal  ul li').on('click touch', function (){
     var submenu = $(this).find('span').text();
     console.log('submentu: ',submenu);
 
@@ -116,7 +116,7 @@ function abrirVista(vista){
 /* ===================================
 Cerrar las vistas con el icono de la derecha
 ====================================== */
-$('.desplegable .fa-times').click(function(){
+$('.desplegable .fa-times').on('click touch', function (){
     $(vista).animate({'width': '0px', 'visibility': 'hidden'}, 300, function(){$(vista).css({'visibility': 'hidden'}); 
     } ); 
 
@@ -175,10 +175,12 @@ Introducción del peso y la talla abriendo
 el teclado.
 ======================================== */
 $('.pesoValor, .tallaValor').click(function(e){
+    $('.pesoValor, .tallaValor').css({'color': 'grey'});
+    $(this).css({'color': 'RGBA(142, 169, 219, 1.00'});
     campo = e.target.className;
     if(e.target.textContent != ""){
         cifra =e.target.textContent};
-    $('.teclado').css({'visibility': 'visible'}).animate({'height': '200px'}, 200);
+    $('.teclado').css({'visibility': 'visible'}).animate({'height': '200px'}, 220);
 });
 
 $('.teclado > *').click(function(e) {
@@ -231,7 +233,8 @@ function mostrarNumero(){
 }
 function salirTeclado(){
     $('.teclado').animate({'height': '0px'}, 200, function(){$('.teclado').css({'visibility': 'hidden'})
-    })
+    });
+    $('.pesoValor, .tallaValor').css({'color': 'grey'});
     calculos();
 };
 
@@ -239,7 +242,7 @@ function salirTeclado(){
 Elección del peso para las necesidades
 inidividualizadas de calorías.
 ======================================== */
-$('.pesoCalorias').click(function(){
+$('.pesoCalorias').on('click touch', function (){
     if ($('.pesoCalorias > span').text() === "Peso real") {
     console.log('click peso');
 
@@ -263,7 +266,7 @@ $('.pesoCalorias').click(function(){
 Elección del peso para las necesidades
 inidividualizadas de proteínas.
 ======================================== */
-$('.pesoProteinas').click(function(){
+$('.pesoProteinas').on('click touch', function (){
     if ($('.pesoProteinas span').text() === "Peso real") {
         pesoElegidoProt = pesoIdeal
         $('.pesoProteinas span').text("Peso ideal");
@@ -283,7 +286,7 @@ $('.pesoProteinas').click(function(){
 Click sobre las flechas de modificación de
 valor
 ======================================== */
-$('.flecha').click(function(){
+$('.flecha').on('click touch', function (){
     flecha = $(this).attr('class');
     $destino = $(this).siblings('span'); 
     valor = parseFloat($destino.text());

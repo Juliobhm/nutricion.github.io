@@ -8,6 +8,7 @@ html, body {
     font-weight: 400;
     font-size: 16px;
     color: grey;
+    touch-action: manipulation;
 
  /* Impide que se pueda seleccionar y la respuesta al  clikc largo en iphone. */
         -webkit-user-select: none;

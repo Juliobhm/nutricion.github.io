@@ -9,14 +9,13 @@ html, body {
     font-size: 16px;
     color: grey;
 
- 
+ /* Impide que se pueda seleccionar y la respuesta al  clikc largo en iphone. */
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-       
         -webkit-touch-callout: none;
-      }
+      
  }
  * {
     box-sizing: border-box;

@@ -298,7 +298,7 @@ Efecto click and hold sobre las flechas
     var valor;
 
     // Clik en el botón
-    $('.flecha').mousedown(function () { 
+    $('.flecha').on('mosusedown touchstart', function (){ 
         flecha = $(this).attr('class');
         $destino = $(this).siblings('span');
         clearInterval(intervalo);
@@ -309,7 +309,7 @@ Efecto click and hold sobre las flechas
     });
 
     // Se libera el botón
-    $('.flecha').mouseup(function () {
+    $('.flecha').on('mosuseup touchend', function (){
         clearInterval(intervalo);
     });
 

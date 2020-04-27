@@ -20,6 +20,9 @@ html, body {
  }
  * {
     box-sizing: border-box;
+    touch-action: manipulation;
+
+
   }
  ul {
     list-style: none;

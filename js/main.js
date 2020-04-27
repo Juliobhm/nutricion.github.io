@@ -484,7 +484,14 @@ function calculos () {
     Redondeo de los requerimientos de Calorías y Proteina para presentación en pantalla.
     ======================================= */
    //Se hace al final, para que los cálculos previos sean sobre datos sinredoendear
+   requerimientosCal.forEach(function(item, index, arr){
+    arr[index] = Math.round(item);
+    });
+requerimientosProt.forEach(function(item, index, arr){
+arr[index] = Math.round(item);
+});
 
+rellenarCampos();
 
 }
 
@@ -495,13 +502,7 @@ function calculos () {
     ======================================== */
     function rellenarCampos() {
 
-    requerimientosCal.forEach(function(item, index, arr){
-        arr[index] = Math.round(item);
-        });
-    requerimientosProt.forEach(function(item, index, arr){
-    arr[index] = Math.round(item);
-    });
-    rellenarCampos();
+
 
 
 

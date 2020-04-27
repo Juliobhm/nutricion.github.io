@@ -178,7 +178,7 @@ $('.pesoValor, .tallaValor').click(function(e){
     campo = e.target.className;
     if(e.target.textContent != ""){
         cifra =e.target.textContent};
-    $('.teclado').css({'visibility': 'visible'}).animate({'height': '250px'}, 200);
+    $('.teclado').css({'visibility': 'visible'}).animate({'height': '200px'}, 200);
 });
 
 $('.teclado > *').click(function(e) {

@@ -52,10 +52,10 @@ a {
     height: 100vh;
     margin: 0px auto;
     position: relative;
-    background-color: rgb(192, 188, 188);
+    background-color: RGBA(235, 236, 240, 1.00);
 }
 .sombreado_0 {
-    background-color: RGBA(32, 55, 100, 1.00);
+    background-color: RGBA(15, 82, 152, 1.00);
     font-size: calc(1.2rem + 1vmin);
     color: white;
     text-align: center;
@@ -103,7 +103,7 @@ Encabezado
     grid-template-columns: 1fr 7fr ;
     grid-template-rows: 2fr;
     height: 13vh;
-    background-color: RGBA(56, 82, 105, 1.00);
+    background-color: RGBA(32, 55, 100, 1.00);
     align-items: center;
     color: white;
     text-align: center;

@@ -416,16 +416,21 @@ function calculos () {
         requerimientosProt = [1.3*pesoIdeal, 1.5*pesoIdeal, 2*pesoIdeal, 2.2*pesoIdeal]; 
 
     }
+
+    console.log(peso, pesoAjustado, pesoIdeal, imc);
+
     /* =======================================
     Se añaden la prescripción individualizada según calorías y gramos de proteinas
     ======================================= */
     requerimientosCal[4] = pesoElegidoCal * caloriasKg;
     requerimientosProt[4] = pesoElegidoProt * proteinasKg;
 
-    requerimientosProt.forEach(function(item, index, arr){
-        console.log('Requerimientos 4: ', arr[index]);
+    requerimientosCal.forEach(function(item, index, arr){
+        console.log('Requerimientos día :',index, arr[index]);
     })
-
+    requerimientosProt.forEach(function(item, index, arr){
+        console.log('Requerimientos día :',index, arr[index]);
+    })
     prescripcionCal.forEach(function(item, index, arr){
         arr[index] = requerimientosCal[index] / nutriciones[indice].corCal;
     });
@@ -463,7 +468,7 @@ function calculos () {
     mlNutricion[5] = volumenNutricion
     sobresFresubin[5] = sobresNutricion;
 
-    console.log('Ml y sobres: ',mlNutricion[5],sobresFresubin[5])
+  
 
     /* =======================================
     Calculo los datos para el campo Administrado
@@ -479,14 +484,9 @@ function calculos () {
     Redondeo de los requerimientos de Calorías y Proteina para presentación en pantalla.
     ======================================= */
    //Se hace al final, para que los cálculos previos sean sobre datos sinredoendear
-   requerimientosCal.forEach(function(item, index, arr){
-    arr[index] = Math.round(item);
-    });
-   requerimientosProt.forEach(function(item, index, arr){
-    arr[index] = Math.round(item);
-    });
+
+
 }
-    //rellenarCampos();
 
 
     /* ======================================
@@ -494,50 +494,61 @@ function calculos () {
     datos calculados.
     ======================================== */
     function rellenarCampos() {
-        $('.pesoValor > span').text(peso);
-        $('.tallaValor > span').text(talla);
-        $('.imcValor > span').text(Math.round(imc*10)/10);
-        $('.pesoIdealValor > span').text(Math.round(pesoIdeal*10)/10);
-        $('.pesoAjustadoValor > span').text(Math.round(pesoAjustado*10)/10);
-    }
-    //     $('.req_cal_dia_1').text(requerimientosCal[0]);
-    //     $('.req_cal_dia_2').text(requerimientosCal[1]);
-    //     $('.req_cal_dia_3').text(requerimientosCal[2]);
-    //     $('.req_cal_estable').text(requerimientosCal[3]);
 
-    //     $('.req_prot_dia_1').text(requerimientosProt[0]);
-    //     $('.req_prot_dia_2').text(requerimientosProt[1]);
-    //     $('.req_prot_dia_3').text(requerimientosProt[2]);
-    //     $('.req_prot_estable').text(requerimientosProt[3]);
+    requerimientosCal.forEach(function(item, index, arr){
+        arr[index] = Math.round(item);
+        });
+    requerimientosProt.forEach(function(item, index, arr){
+    arr[index] = Math.round(item);
+    });
+    rellenarCampos();
 
-    //     $('.presc_mL_dia_1').text(mlNutricion[0]);
-    //     $('.presc_mL_dia_2').text(mlNutricion[1]);
-    //     $('.presc_mL_dia_3').text(mlNutricion[2]);
-    //     $('.presc_mL_estable').text(mlNutricion[3]);
 
-    //     $('.presc_sobres_dia_1').text(sobresFresubin[0]);
-    //     $('.presc_sobres_dia_2').text(sobresFresubin[1]);
-    //     $('.presc_sobres_dia_3').text(sobresFresubin[2]);
-    //     $('.presc_sobres_estable').text(sobresFresubin[3]);
 
-    //     $('.admin_dia_1').text(administrado[0]);
-    //     $('.admin_dia_2').text(administrado[1]);
-    //     $('.admin_dia_3').text(administrado[2]);
-    //     $('.admin_estable').text(administrado[3]);
+        $('.pesoValor').text(peso);
+        $('.tallaValor').text(talla);
+        $('.imcValor').text(Math.round(imc*10)/10);
+        $('.pesoIdealValor').text(Math.round(pesoIdeal*10)/10);
+        $('.pesoAjustadoValor').text(Math.round(pesoAjustado*10)/10);
+    
+        $('.req_cal_dia_1').text(requerimientosCal[0]);
+        $('.req_cal_dia_2').text(requerimientosCal[1]);
+        $('.req_cal_dia_3').text(requerimientosCal[2]);
+        $('.req_cal_estable').text(requerimientosCal[3]);
 
-    //     //Prescripcion por calorías y proteinas
-    //     $('.caloriasKg').text(caloriasKg.toFixed(0));
-    //     $('.proteinasKg').text(proteinasKg.toFixed(1));
-    //     $('.presc_mL_indiv_1').text(mlNutricion[4]);
-    //     $('.presc_sobres_indiv_1').text(sobresFresubin[4]);
-    //     $('.admin_indiv_1').text(administrado[4]);
+        $('.req_prot_dia_1').text(requerimientosProt[0]);
+        $('.req_prot_dia_2').text(requerimientosProt[1]);
+        $('.req_prot_dia_3').text(requerimientosProt[2]);
+        $('.req_prot_estable').text(requerimientosProt[3]);
+
+        $('.presc_mL_dia_1').text(mlNutricion[0]);
+        $('.presc_mL_dia_2').text(mlNutricion[1]);
+        $('.presc_mL_dia_3').text(mlNutricion[2]);
+        $('.presc_mL_estable').text(mlNutricion[3]);
+
+        $('.presc_sobres_dia_1').text(sobresFresubin[0]);
+        $('.presc_sobres_dia_2').text(sobresFresubin[1]);
+        $('.presc_sobres_dia_3').text(sobresFresubin[2]);
+        $('.presc_sobres_estable').text(sobresFresubin[3]);
+
+        $('.admin_dia_1').text(administrado[0]);
+        $('.admin_dia_2').text(administrado[1]);
+        $('.admin_dia_3').text(administrado[2]);
+        $('.admin_estable').text(administrado[3]);
+
+        //Prescripcion por calorías y proteinas
+        $('.caloriasKg').text(caloriasKg.toFixed(0));
+        $('.proteinasKg').text(proteinasKg.toFixed(1));
+        $('.presc_mL_indiv_1').text(mlNutricion[4]);
+        $('.presc_sobres_indiv_1').text(sobresFresubin[4]);
+        $('.admin_indiv_1').text(administrado[4]);
         
-    //     //Prescripción por mL y sobres
-    //     $('.presc_mL_indiv_2').text(mlNutricion[5]);
-    //     $('.presc_sobres_indiv_2').text(sobresFresubin[5]);
-    //     $('.admin_indiv_2').text(administrado[5]);
+        //Prescripción por mL y sobres
+        $('.presc_mL_indiv_2').text(mlNutricion[5]);
+        $('.presc_sobres_indiv_2').text(sobresFresubin[5]);
+        $('.admin_indiv_2').text(administrado[5]);
 
-    // } 
+    } 
 
 
 

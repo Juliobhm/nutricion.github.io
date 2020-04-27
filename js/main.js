@@ -40,7 +40,7 @@ var controlInicial = 0;
 /* =============================
 Apertura del menú lateral. El icono de apertura tiene efecto toggle.
 ============================== */
-$('.boton-menu').click(function () {
+$('.boton-menu').on('click touch', function () {
     if ($(this).hasClass('fa-bars')){
         $(this).removeClass('fa-bars').addClass('fa-times');
         
@@ -125,7 +125,7 @@ $('.desplegable .fa-times').click(function(){
 /* ======================================
 Pulsar el icono de información de las nutriciones
 ======================================= */
-    $('.boton-info').click(function () {
+    $('.boton-info').on('click touch', function () {
             var informacion = $(this).parents('div').siblings('div');
 
         if ($(this).hasClass('fa-info')){

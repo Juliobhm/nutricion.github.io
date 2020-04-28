@@ -26,7 +26,8 @@ var prescripcionCal = [0,0,0,0,0,0];
 var pescripcionProt = [0,0,0,0,0,0];
 var mlNutricion = [0,0,0,0,0,0];
 var sobresFresubin = [0,0,0,0,0,0];
-var administrado = ["","","","","",""];
+var administradoCal = ["","","","","",""];
+var administradoProt = ["","","","","",""];
 var volumenNutricion = 1000;
 var sobresNutricion = 5;
 // requerimientos = [caloriasDia1, caloriasDia2, caloriasDia3, caloriasEstabe]
@@ -74,6 +75,7 @@ Elección de la vista en la barra lateral.
 Envía a la función abrir vista.
 ======================================== */
 $('.menuPrincipal  ul li').on('click touch', function (){
+    $('html, body').css({'overflow': 'hidden'});
     var submenu = $(this).find('span').text();
     console.log('submentu: ',submenu);
 
@@ -90,6 +92,7 @@ $('.menuPrincipal  ul li').on('click touch', function (){
     }
     else if(submenu === 'Prescripción'){
         vista = '.contenedor .menu .prescripcion ul';
+        $('html, body').css({'overflow': 'visible'});
     }
     else if(submenu === 'Cálculos individualizados'){
         vista = '.contenedor .menu .calculosIndividualizados ul';
@@ -146,12 +149,13 @@ Check sobre el tipo de nutrición
 ======================================= */
 $('.fa-check').click(function (e) { 
     e.preventDefault();
-    $(this).css({'color': 'RGBA(32, 55, 100, 1.00)'});
+    $(this).css({'color': 'RGBA(15, 82, 152, 1.00)'});
     nutricion = $(this).siblings('span').text();
 
     $(this).parents('li').siblings().find('.fa-check').css({'color': 'Grey'});
     calculos();
 });
+
 
 /* ======================================
 Elección de sexo
@@ -243,20 +247,17 @@ Elección del peso para las necesidades
 inidividualizadas de calorías.
 ======================================== */
 $('.pesoCalorias').on('click touch', function (){
-    if ($('.pesoCalorias > span').text() === "Peso real") {
-    console.log('click peso');
-
-
+    if ($('.pesoCalorias').text() === "Peso real") {
         pesoElegidoCal = pesoIdeal
-        $('.pesoCalorias > span').text("Peso ideal");
+        $('.pesoCalorias').text("Peso ideal");
     }
-    else if ($('.pesoCalorias > span').text() === "Peso ideal") {
+    else if ($('.pesoCalorias').text() === "Peso ideal") {
         pesoElegidoCal = pesoAjustado;
-        $('.pesoCalorias > span').text("Peso ajustado");
+        $('.pesoCalorias').text("Peso ajustado");
     }
-    else if ($('.pesoCalorias > span').text() === "Peso ajustado") {
+    else if ($('.pesoCalorias').text() === "Peso ajustado") {
         pesoElegidoCal = peso;
-        $('.pesoCalorias > span').text("Peso real");
+        $('.pesoCalorias').text("Peso real");
     };
     console.log(pesoElegidoCal);
     calculos();
@@ -267,17 +268,14 @@ Elección del peso para las necesidades
 inidividualizadas de proteínas.
 ======================================== */
 $('.pesoProteinas').on('click touch', function (){
-    if ($('.pesoProteinas span').text() === "Peso real") {
-        pesoElegidoProt = pesoIdeal
-        $('.pesoProteinas span').text("Peso ideal");
+    if ($('.pesoProteinas').text() === "Peso real") {
+        $('.pesoProteinas').text("Peso ideal");
     }
-    else if ($('.pesoProteinas span').text() === "Peso ideal") {
-        pesoElegidoProt = pesoAjustado;
-        $('.pesoProteinas span').text("Peso ajustado");
+    else if ($('.pesoProteinas').text() === "Peso ideal") {
+        $('.pesoProteinas').text("Peso ajustado");
     }
-    else if ($('.pesoProteinas span').text() === "Peso ajustado") {
-        pesoElegidoProt = peso;
-        $('.pesoProteinas span').text("Peso real");
+    else if ($('.pesoProteinas').text() === "Peso ajustado") {
+        $('.pesoProteinas').text("Peso real");
     };
     calculos();
 });
@@ -425,12 +423,6 @@ function calculos () {
     requerimientosCal[4] = pesoElegidoCal * caloriasKg;
     requerimientosProt[4] = pesoElegidoProt * proteinasKg;
 
-    requerimientosCal.forEach(function(item, index, arr){
-        console.log('Requerimientos día :',index, arr[index]);
-    })
-    requerimientosProt.forEach(function(item, index, arr){
-        console.log('Requerimientos día :',index, arr[index]);
-    })
     prescripcionCal.forEach(function(item, index, arr){
         arr[index] = requerimientosCal[index] / nutriciones[indice].corCal;
     });
@@ -438,7 +430,6 @@ function calculos () {
         arr[index] = requerimientosProt[index] * nutriciones[indice].corProt;
 
     });
-
 
 
     /* =======================================
@@ -473,12 +464,21 @@ function calculos () {
     /* =======================================
     Calculo los datos para el campo Administrado
     ======================================= */
-    administrado.forEach(function(item, index, arr){
-        arr[index] = Math.round(mlNutricion[index] * nutriciones[indice].corCal) +
-        ' cal - ' +
-        Math.round(mlNutricion[index] * nutriciones[indice].corProt + sobresFresubin[index] * 10) +
-        ' g Prot'
+    administradoCal.forEach(function(item, index, arr){
+        arr[index] = Math.round(mlNutricion[index] * nutriciones[indice].corCal);
     });
+        
+    administradoProt.forEach(function(item, index, arr){arr[index] = Math.round(mlNutricion[index] * nutriciones[indice].corProt + sobresFresubin[index] * 10);
+    });
+
+   
+
+    administradoCal.forEach(function(item, index, arr){
+        console.log('Requerimientos día :',index, arr[index]);
+    })
+    administradoProt.forEach(function(item, index, arr){
+        console.log('Requerimientos día :',index, arr[index]);
+    })
 
     /* =======================================
     Redondeo de los requerimientos de Calorías y Proteina para presentación en pantalla.
@@ -501,16 +501,12 @@ rellenarCampos();
     datos calculados.
     ======================================== */
     function rellenarCampos() {
-
-
-
-
-
         $('.pesoValor').text(peso);
         $('.tallaValor').text(talla);
         $('.imcValor').text(Math.round(imc*10)/10);
         $('.pesoIdealValor').text(Math.round(pesoIdeal*10)/10);
         $('.pesoAjustadoValor').text(Math.round(pesoAjustado*10)/10);
+        $('.nombreNuticion').text(nutricion + ' (mL)');
     
         $('.req_cal_dia_1').text(requerimientosCal[0]);
         $('.req_cal_dia_2').text(requerimientosCal[1]);
@@ -532,22 +528,29 @@ rellenarCampos();
         $('.presc_sobres_dia_3').text(sobresFresubin[2]);
         $('.presc_sobres_estable').text(sobresFresubin[3]);
 
-        $('.admin_dia_1').text(administrado[0]);
-        $('.admin_dia_2').text(administrado[1]);
-        $('.admin_dia_3').text(administrado[2]);
-        $('.admin_estable').text(administrado[3]);
+        $('.admin_Cal_dia_1').text(administradoCal[0]);
+        $('.admin_Cal_dia_2').text(administradoCal[1]);
+        $('.admin_Cal_dia_3').text(administradoCal[2]);
+        $('.admin_Cal_estable').text(administradoCal[3]);
+
+        $('.admin_Prot_dia_1').text(administradoProt[0]);
+        $('.admin_Prot_dia_2').text(administradoProt[1]);
+        $('.admin_Prot_dia_3').text(administradoProt[2]);
+        $('.admin_Prot_estable').text(administradoProt[3]);
 
         //Prescripcion por calorías y proteinas
         $('.caloriasKg').text(caloriasKg.toFixed(0));
         $('.proteinasKg').text(proteinasKg.toFixed(1));
         $('.presc_mL_indiv_1').text(mlNutricion[4]);
         $('.presc_sobres_indiv_1').text(sobresFresubin[4]);
-        $('.admin_indiv_1').text(administrado[4]);
+        $('.admin_cal_indiv_1').text(administradoCal[4]);
+        $('.admin_prot_indiv_1').text(administradoProt[4]);
+
         
         //Prescripción por mL y sobres
         $('.presc_mL_indiv_2').text(mlNutricion[5]);
         $('.presc_sobres_indiv_2').text(sobresFresubin[5]);
-        $('.admin_indiv_2').text(administrado[5]);
+        $('.admin_prot_indiv_2').text(administradoProt[5]);
 
     } 
 

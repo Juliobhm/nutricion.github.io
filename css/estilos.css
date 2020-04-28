@@ -1,6 +1,8 @@
 
 html, body {
-    height: 100%;
+    height: 100vh;
+    max-width: 100vh;
+    overflow: hidden;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -91,7 +93,7 @@ a {
     top: 0px;
     left: 4px;
 }
-.fa-times:hover {
+.fa-times, .flecha:hover {
     cursor: pointer;
 }
 
@@ -101,7 +103,7 @@ Encabezado
 .contenedor .menu .encabezado  ul{
     display: grid;
     grid-template-columns: 1fr 7fr ;
-    grid-template-rows: 2fr;
+    grid-template-rows: 1fr;
     height: 13vh;
     background-color: RGBA(32, 55, 100, 1.00);
     align-items: center;
@@ -113,15 +115,8 @@ Encabezado
     left: 0px;
     visibility: visible;
 }
-.contenedor .menu .encabezado .celda_1_1 {
-    grid-row: 1/3;
-}
-.contenedor .menu .encabezado .celda_1_2 {
-    margin-top: 20px;
-}
 .contenedor .menu .encabezado  ul li i{
     font-size: calc(2.0rem + 1vmin);
-    margin: 10px;
 }
 .contenedor .menu .encabezado  ul i:hover{
    cursor: pointer;

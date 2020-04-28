@@ -76,16 +76,23 @@ Envía a la función abrir vista.
 ======================================== */
 $('.menuPrincipal  ul li').on('click touch', function (){
     $('html, body').css({'overflow': 'hidden'});
+    $('.informacion').css({'opacity': '0'});
+
+
     var submenu = $(this).find('span').text();
     console.log('submentu: ',submenu);
 
     vista = "";
     if(submenu === 'Nutriciones'){
         vista = '.contenedor .menu .tiposNutricion ul';
+        $('.parametrosInformacion').css({'opacity': '1'});
+        $('.notaInformacion').css({'opacity': '0.5'});   
         }
 
     else if(submenu === 'Datos del paciente'){
-    vista = '.contenedor .menu .datosPaciente ul';
+        vista = '.contenedor .menu .datosPaciente ul';
+        $('.parametrosInformacion').css({'opacity': '1'});
+        $('.notaInformacion').css({'opacity': '0.5'});   
     }
     else if(submenu === 'Requerimientos teóricos'){
         vista = '.contenedor .menu .requerimientosTeoricos ul';
@@ -122,7 +129,7 @@ Cerrar las vistas con el icono de la derecha
 $('.desplegable .fa-times').on('click touch', function (){
     $(vista).animate({'width': '0px', 'visibility': 'hidden'}, 300, function(){$(vista).css({'visibility': 'hidden'}); 
     } ); 
-
+    $('.informacion').animate({'opacity': '1'},300);
     }); 
 
 /* ======================================
@@ -139,7 +146,7 @@ Pulsar el icono de información de las nutriciones
             $(this).removeClass('fa-times').addClass('fa-info'); 
 
             $(informacion).animate({'height': '0px'}, 200, function(){
-                $(informacion).css({'visibility': 'hidden'})
+            $(informacion).css({'visibility': 'hidden'})
             });
         };
     });
@@ -153,6 +160,9 @@ $('.fa-check').click(function (e) {
     nutricion = $(this).siblings('span').text();
 
     $(this).parents('li').siblings().find('.fa-check').css({'color': 'Grey'});
+    $('.parametrosInformacion').css({'color': 'rgb(128, 128, 128, 1'});
+    $('.notaInformacion').css({'color': 'rgb(128, 128, 128, 0.5'});
+
     calculos();
 });
 
@@ -171,7 +181,11 @@ $('.sexoElegido').click(function (e) {
         sexo='Hombre';
     }
     $('.sexoActual').text(sexo);
+    
+    $('.parametrosInformacion').css({'color': 'rgb(128, 128, 128, 1'});
+    $('.notaInformacion').css({'color': 'rgb(128, 128, 128, 0.5'});
     calculos();
+
 });
 
 /* ======================================
@@ -179,6 +193,7 @@ Introducción del peso y la talla abriendo
 el teclado.
 ======================================== */
 $('.pesoValor, .tallaValor').click(function(e){
+
     $('.pesoValor, .tallaValor').css({'color': 'grey'});
     $(this).css({'color': 'RGBA(142, 169, 219, 1.00'});
     campo = e.target.className;
@@ -186,6 +201,7 @@ $('.pesoValor, .tallaValor').click(function(e){
         cifra =e.target.textContent};
     $('.teclado').css({'visibility': 'visible'}).animate({'height': '200px'}, 220);
 });
+
 
 $('.teclado > *').click(function(e) {
     e.preventDefault(e);
@@ -501,8 +517,13 @@ rellenarCampos();
     datos calculados.
     ======================================== */
     function rellenarCampos() {
-        $('.pesoValor').text(peso);
+        $('.pesoValor, .parametroPeso').text(peso);
+        $('.parametroPeso').text('Peso: ' + peso + ' kg');
         $('.tallaValor').text(talla);
+        $('.parametroTalla').text('Talla: ' + talla + ' cm');
+        $('.parametroSexo').text('Sexo: ' + sexo);
+        $('.parametroNutricion').text('Nutricion: ' + nutricion);
+
         $('.imcValor').text(Math.round(imc*10)/10);
         $('.pesoIdealValor').text(Math.round(pesoIdeal*10)/10);
         $('.pesoAjustadoValor').text(Math.round(pesoAjustado*10)/10);

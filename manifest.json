@@ -12,42 +12,42 @@
    
     "icons": [
       {
-        "src": "images/icons/Nutricion-16.png",
+        "src": "images/icons/nutricion-16.png",
         "sizes": "16x16",
         "type": "image/png"
       },
       {
-        "src": "images/icons/Nutricion-32.png",
+        "src": "images/icons/nutricion-32.png",
         "sizes": "32x32",
         "type": "image/png"
       },
       {
-        "src": "images/icons/Nutricion-72.png",
+        "src": "images/icons/nutricion-72.png",
         "sizes": "72x72",
         "type": "image/png"
       },
       {
-        "src": "images/icons/Nutricion-128.png",
+        "src": "images/icons/nutricion-128.png",
         "sizes": "128x128",
         "type": "image/png"
       },
       {
-      "src": "images/icons/Nutricion-152.png",
+      "src": "images/icons/nutricion-152.png",
       "sizes": "152x152",
       "type": "image/png"
       },
       {
-        "src": "images/icons/Nutricion-180.png",
+        "src": "images/icons/nutricion-180.png",
         "sizes": "180x180",
         "type": "image/png"
       },
       {
-        "src": "images/icons/Nutricion-192.png",
+        "src": "images/icons/nutricion-192.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "images/icons/Nutricion-256.png",
+        "src": "images/icons/nutricion-256.png",
         "sizes": "256x256",
         "type": "image/png"
       },

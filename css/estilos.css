@@ -96,6 +96,9 @@ a {
 .fa-times, .flecha:hover {
     cursor: pointer;
 }
+.activado {
+    pointer-events: none;
+}
 
 /*============================================ 
 Encabezado

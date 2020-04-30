@@ -8,9 +8,9 @@ var nutriciones = [
         ];
 var nutricion = 'Glucerna';
 var indice = 0;
-var sexo = "Hombre";
-var peso = 70;
-var talla = 170;
+var sexo = "--";
+var peso = "--";
+var talla = "--";
 var imc = 0;
 var pesoIdeal = 0;
 var pesoAjustado = 0;
@@ -20,6 +20,8 @@ var proteinasKg = 2.0;
 var caloriasKg = 20;
 var corCal = 1.5;
 var corProt = 0.075;
+var pesoValor = "";
+var tallaValor = "";
 var requerimientosCal = [0,0,0,0,0,0];
 var requerimientosProt = [0,0,0,0,0,0];
 var prescripcionCal = [0,0,0,0,0,0];
@@ -76,7 +78,6 @@ Envía a la función abrir vista.
 ======================================== */
 $('.menuPrincipal  ul li').on('click touch', function (){
     $('html, body').css({'overflow': 'hidden'});
-    $('.informacion').css({'opacity': '0'});
 
 
     var submenu = $(this).find('span').text();
@@ -85,21 +86,30 @@ $('.menuPrincipal  ul li').on('click touch', function (){
     vista = "";
     if(submenu === 'Nutriciones'){
         vista = '.contenedor .menu .tiposNutricion ul';
-        $('.parametrosInformacion').css({'opacity': '1'});
-        $('.notaInformacion').css({'opacity': '0.5'});   
         }
 
     else if(submenu === 'Datos del paciente'){
         vista = '.contenedor .menu .datosPaciente ul';
-        $('.parametrosInformacion').css({'opacity': '1'});
-        $('.notaInformacion').css({'opacity': '0.5'});   
     }
     else if(submenu === 'Requerimientos teóricos'){
-        vista = '.contenedor .menu .requerimientosTeoricos ul';
-    }
+        if (peso != "--" && talla != "--" && sexo != "--" ){
+            vista = '.contenedor .menu .requerimientosTeoricos ul';
+            }
+            else {
+                return
+            }
+        }
     else if(submenu === 'Prescripción'){
-        vista = '.contenedor .menu .prescripcion ul';
-        $('html, body').css({'overflow': 'visible'});
+        console.log(pesoValor, tallaValor, sexo);
+
+        if (peso != "--" && talla != "--" && sexo != "--" ){
+            console.log(pesoValor, tallaValor, sexo);
+            vista = '.contenedor .menu .prescripcion ul';
+            $('html, body').css({'overflow': 'visible'});
+        }
+        else {
+            return
+        }
     }
     else if(submenu === 'Cálculos individualizados'){
         vista = '.contenedor .menu .calculosIndividualizados ul';
@@ -113,13 +123,15 @@ Abrir vista tras hacer click en la barra
 lateral.
 ======================================== */
 function abrirVista(vista){
+    // $('.boton-menu').off('click touch');
+    $('.boton-menu').addClass('activado');
+    $('.parametrosInformacion, .notaInformacion').css({'opacity': '0'});
 
-        // $('.contenedor .sobreponer').css({'display':'block'});
-        $(vista).css({'visibility': 'visible'}).animate({'width': '100%', 'visibility': 'visible'}, 400);
- 
-        $('.menuPrincipal ul').animate({'width': '0px'}, 400, function(){
-            $('.menuPrincipal ul').css({'visibility': 'hidden'})
-        });
+    $(vista).css({'visibility': 'visible'}).animate({'width': '100%', 'visibility': 'visible'}, 400);
+
+    $('.menuPrincipal ul').animate({'width': '0px'}, 400, function(){
+        $('.menuPrincipal ul').css({'visibility': 'hidden'})
+    });
     $('.encabezado .boton-menu').removeClass('fa-times').addClass('fa-bars'); 
 };
 
@@ -127,10 +139,21 @@ function abrirVista(vista){
 Cerrar las vistas con el icono de la derecha
 ====================================== */
 $('.desplegable .fa-times').on('click touch', function (){
+    $('.boton-menu').removeClass('activado');
+    console.log('desactivado');
     $(vista).animate({'width': '0px', 'visibility': 'hidden'}, 300, function(){$(vista).css({'visibility': 'hidden'}); 
     } ); 
-    $('.informacion').animate({'opacity': '1'},300);
-    }); 
+  
+    if (peso != "--" && talla != "--" && sexo != "--"  && nutricion != "--") {
+        $('.parametrosInformacion').animate({'opacity': '1'},300);
+        $('.notaInformacion').animate({'opacity': '0.5'},300);
+        }
+    else {
+        $('.notaInformacion').animate({'opacity': '1'},300);
+        $('.parametrosInformacion').animate({'opacity': '0.5'},300);
+        }
+});
+
 
 /* ======================================
 Pulsar el icono de información de las nutriciones
@@ -160,8 +183,6 @@ $('.fa-check').click(function (e) {
     nutricion = $(this).siblings('span').text();
 
     $(this).parents('li').siblings().find('.fa-check').css({'color': 'Grey'});
-    $('.parametrosInformacion').css({'color': 'rgb(128, 128, 128, 1'});
-    $('.notaInformacion').css({'color': 'rgb(128, 128, 128, 0.5'});
 
     calculos();
 });
@@ -172,18 +193,19 @@ Elección de sexo
 ======================================== */
 $('.sexoElegido').click(function (e) { 
     e.preventDefault();
-    sexo = $('.sexoActual').text()
+    sexo = $('.sexoElegido').text()
     console.log('Entrada ', sexo);
-    if(sexo==='Hombre') {
-        sexo='Mujer';
-    }
-    else {
+    if(sexo==='--') {
         sexo='Hombre';
     }
-    $('.sexoActual').text(sexo);
+    else if(sexo==='Hombre') {
+        sexo='Mujer';
+    }
+    else if (sexo==='Mujer'){
+        sexo='Hombre';
+    }
+    $('.sexoElegido').text(sexo);
     
-    $('.parametrosInformacion').css({'color': 'rgb(128, 128, 128, 1'});
-    $('.notaInformacion').css({'color': 'rgb(128, 128, 128, 0.5'});
     calculos();
 
 });
@@ -241,15 +263,14 @@ function borrarNumero(){
 }
 function mostrarNumero(){
     if(campo === 'modificable pesoValor centro'){
-            console.log('campo: ',campo,cifra);
-
        $('.pesoValor').text(cifra);
        peso = parseFloat(cifra);    
     }
     else if(campo === 'modificable tallaValor centro'){
         $('.tallaValor').text(cifra);
-        talla = parseFloat(cifra);     
+        talla = parseFloat(cifra);  
      }
+    calculos();
 }
 function salirTeclado(){
     $('.teclado').animate({'height': '0px'}, 200, function(){$('.teclado').css({'visibility': 'hidden'})
@@ -275,7 +296,6 @@ $('.pesoCalorias').on('click touch', function (){
         pesoElegidoCal = peso;
         $('.pesoCalorias').text("Peso real");
     };
-    console.log(pesoElegidoCal);
     calculos();
 });
 
@@ -421,7 +441,6 @@ function calculos () {
     }
     else if (imc >30 && imc < 50) {
         requerimientosCal = [5*pesoAjustado, 7*pesoAjustado, 10*peso, 14*pesoAjustado];
-        console.log('estamos aquí', 1.3*pesoIdeal);
         // requerimientoProt = [1.3*pesoIdeal, 1.5*pesoIdeal, 2*pesoIdeal, 2.2*pesoIdeal]; 
         requerimientosProt = [1.3*pesoIdeal, 1.5*pesoIdeal, 2*pesoIdeal, 2.2*pesoIdeal]; 
     }

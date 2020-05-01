@@ -4,8 +4,13 @@
 
 var nutriciones = [
         {nombre: "Glucerna", corCal: 1.5, corProt: 0.075},
-        {nombre: "Oxepa", corCal: 1.5, corProt: 0.062}
+        {nombre: "Oxepa", corCal: 1.5, corProt: 0.062},
+        
+        {nombre: "Jevity", corCal: 1.5, corProt: 0.075}
         ];
+
+
+
 var nutricion = 'Glucerna';
 var indice = 0;
 var sexo = "--";
@@ -40,6 +45,17 @@ var ultimocampo;
  $(document).ready(function(){
     //calculos();
 
+    nutriciones.forEach(function(item, index){
+        $('.tiposNutricion ul').append('<li class="celda_2_1"><div class="nombreNutricion"><i class="fas fa-info boton-info gris"></i><span>' + nutriciones[index].nombre + '</span><i class="fas fa-check"></i></div><div class="caracteristicasNutricion"><span>Calorias por mL: ' + nutriciones[index].corCal + '</span><span>Gramos proteina por 100 mL: ' + nutriciones[index].corProt * 100 + '</span></div></li>'); 
+    });
+
+    nutriciones.forEach(function(item, index){
+        $('.tiposNutricion ul').append('<li class="celda_2_1"><div class="nombreNutricion"><i class="fas fa-info boton-info gris"></i><span>' + nutriciones[index].nombre + '</span><i class="fas fa-check"></i></div><div class="caracteristicasNutricion"><span>Calorias por mL: ' + nutriciones[index].corCal + '</span><span>Gramos proteina por 100 mL: ' + nutriciones[index].corProt + '</span></div></li>'); 
+    });
+
+    nutriciones.forEach(function(item, index){
+        $('.tiposNutricion ul').append('<li class="celda_2_1"><div class="nombreNutricion"><i class="fas fa-info boton-info gris"></i><span>' + nutriciones[index].nombre + '</span><i class="fas fa-check"></i></div><div class="caracteristicasNutricion"><span>Calorias por mL: ' + nutriciones[index].corCal + '</span><span>Gramos proteina por 100 mL: ' + nutriciones[index].corProt + '</span></div></li>'); 
+    });
 
 
 /* =============================
@@ -179,7 +195,7 @@ $('.fa-check').click(function (e) {
     nutricion = $(this).siblings('span').text();
 
     $(this).parents('li').siblings().find('.fa-check').css({'color': 'Grey'});
-
+    $('.parametroNutricion').text('Nutricion: ' + nutricion);
     if (peso != "--" && talla != "--" && sexo != "--"  && nutricion != "--") {
         calculos(); 
     }
@@ -206,7 +222,8 @@ $('.sexoValor').click(function (e) {
         sexo='Hombre';
     }
     $('.sexoValor').text(sexo);
-    
+    $('.parametroSexo').text('Sexo: ' + sexo);
+
     if (peso != "--" && talla != "--" && sexo != "--"  && nutricion != "--") {
         calculos(); 
     }
@@ -289,10 +306,12 @@ function borrarNumero(){
 function mostrarNumero(){
     if(campo === 'modificable pesoValor centro'){
        $('.pesoValor').text(cifra);
+       $('.parametroPeso').text('Peso: ' + peso + ' kg');
        peso = parseFloat(cifra);    
     }
     else if(campo === 'modificable tallaValor centro'){
         $('.tallaValor').text(cifra);
+        $('.parametroTalla').text('Talla: ' + talla + ' cm');
         talla = parseFloat(cifra);  
      }
 }
@@ -624,17 +643,11 @@ rellenarCampos();
     ======================================== */
     function rellenarCampos() {
         $('.pesoValor, .parametroPeso').text(peso);
-        $('.parametroPeso').text('Peso: ' + peso + ' kg');
         $('.tallaValor').text(talla);
-        $('.parametroTalla').text('Talla: ' + talla + ' cm');
-        $('.parametroSexo').text('Sexo: ' + sexo);
-        $('.parametroNutricion').text('Nutricion: ' + nutricion);
-
         $('.imcValor').text(Math.round(imc*10)/10);
         $('.pesoIdealValor').text(Math.round(pesoIdeal*10)/10);
         $('.pesoAjustadoValor').text(Math.round(pesoAjustado*10)/10);
         $('.nombreNuticion').text(nutricion + ' (mL)');
-    
         $('.req_cal_dia_1').text(requerimientosCal[0]);
         $('.req_cal_dia_2').text(requerimientosCal[1]);
         $('.req_cal_dia_3').text(requerimientosCal[2]);

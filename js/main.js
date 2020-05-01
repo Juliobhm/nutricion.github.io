@@ -305,14 +305,16 @@ function borrarNumero(){
 }
 function mostrarNumero(){
     if(campo === 'modificable pesoValor centro'){
-       $('.pesoValor').text(cifra);
-       $('.parametroPeso').text('Peso: ' + peso + ' kg');
-       peso = parseFloat(cifra);    
+        $('.pesoValor').text(cifra);
+        peso = parseFloat(cifra); 
+        $('.parametroPeso').text('Peso: ' + peso + ' kg');
+   
     }
     else if(campo === 'modificable tallaValor centro'){
         $('.tallaValor').text(cifra);
+        talla = parseFloat(cifra); 
         $('.parametroTalla').text('Talla: ' + talla + ' cm');
-        talla = parseFloat(cifra);  
+     
      }
 }
 

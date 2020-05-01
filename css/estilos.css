@@ -83,16 +83,7 @@ a {
     color: black;
 }
 
-.contenedor .sobreponer{
-    display:none;
-    height: 100%;
-    width: calc(100% - 4px);
-    z-index: 100;
-    background-color: rgba(0, 0, 0, 0.3);
-    position: absolute;
-    top: 0px;
-    left: 4px;
-}
+
 .fa-times, .flecha:hover {
     cursor: pointer;
 }
@@ -551,4 +542,48 @@ Teclado
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* =====================================
+Aviso
+===================================== */
+.aviso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    width: 70%;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid grey;
+    border-radius: 10px;
+    background-color: RGBA(210, 226, 234, 1.00);
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+}
+.aviso .avisoSalir {
+    text-align: right;
+    align-self: flex-end;   
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+}
+.aviso .avisoSalir:hover {
+    cursor: pointer;
+}
+.contenedor .sobreponer {
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    top: 0px;
+    left: 4px;
 }

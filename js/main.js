@@ -34,9 +34,11 @@ var volumenNutricion = 1000;
 var sobresNutricion = 5;
 // requerimientos = [caloriasDia1, caloriasDia2, caloriasDia3, caloriasEstabe]
 var controlInicial = 0;
+var campo;
+var ultimocampo;
 
  $(document).ready(function(){
-    calculos();
+    //calculos();
 
 
 
@@ -46,7 +48,6 @@ Apertura del menú lateral. El icono de apertura tiene efecto toggle.
 $('.boton-menu').on('click touch', function () {
     if ($(this).hasClass('fa-bars')){
         $(this).removeClass('fa-bars').addClass('fa-times');
-        
         $('.menuPrincipal ul').css({'visibility': 'visible'}).animate({'width': '98%'}, 400);
 
     }
@@ -81,7 +82,6 @@ $('.menuPrincipal  ul li').on('click touch', function (){
 
 
     var submenu = $(this).find('span').text();
-    console.log('submentu: ',submenu);
 
     vista = "";
     if(submenu === 'Nutriciones'){
@@ -100,10 +100,7 @@ $('.menuPrincipal  ul li').on('click touch', function (){
             }
         }
     else if(submenu === 'Prescripción'){
-        console.log(pesoValor, tallaValor, sexo);
-
         if (peso != "--" && talla != "--" && sexo != "--" ){
-            console.log(pesoValor, tallaValor, sexo);
             vista = '.contenedor .menu .prescripcion ul';
             $('html, body').css({'overflow': 'visible'});
         }
@@ -140,7 +137,6 @@ Cerrar las vistas con el icono de la derecha
 ====================================== */
 $('.desplegable .fa-times').on('click touch', function (){
     $('.boton-menu').removeClass('activado');
-    console.log('desactivado');
     $(vista).animate({'width': '0px', 'visibility': 'hidden'}, 300, function(){$(vista).css({'visibility': 'hidden'}); 
     } ); 
   
@@ -158,7 +154,7 @@ $('.desplegable .fa-times').on('click touch', function (){
 /* ======================================
 Pulsar el icono de información de las nutriciones
 ======================================= */
-    $('.boton-info').on('click touch', function () {
+$('.boton-info').on('click touch', function () {
             var informacion = $(this).parents('div').siblings('div');
 
         if ($(this).hasClass('fa-info')){
@@ -172,7 +168,7 @@ Pulsar el icono de información de las nutriciones
             $(informacion).css({'visibility': 'hidden'})
             });
         };
-    });
+});
 
 /* =======================================
 Check sobre el tipo de nutrición
@@ -184,17 +180,22 @@ $('.fa-check').click(function (e) {
 
     $(this).parents('li').siblings().find('.fa-check').css({'color': 'Grey'});
 
-    calculos();
+    if (peso != "--" && talla != "--" && sexo != "--"  && nutricion != "--") {
+        calculos(); 
+    }
+    else {
+        return
+    }
+
 });
 
 
 /* ======================================
 Elección de sexo
 ======================================== */
-$('.sexoElegido').click(function (e) { 
+$('.sexoValor').click(function (e) { 
     e.preventDefault();
-    sexo = $('.sexoElegido').text()
-    console.log('Entrada ', sexo);
+    sexo = $('.sexoValor').text()
     if(sexo==='--') {
         sexo='Hombre';
     }
@@ -204,9 +205,14 @@ $('.sexoElegido').click(function (e) {
     else if (sexo==='Mujer'){
         sexo='Hombre';
     }
-    $('.sexoElegido').text(sexo);
+    $('.sexoValor').text(sexo);
     
-    calculos();
+    if (peso != "--" && talla != "--" && sexo != "--"  && nutricion != "--") {
+        calculos(); 
+    }
+    else {
+        return
+    }
 
 });
 
@@ -215,18 +221,39 @@ Introducción del peso y la talla abriendo
 el teclado.
 ======================================== */
 $('.pesoValor, .tallaValor').click(function(e){
+    $('.sexoValor, .datosPaciente .fa-times').addClass('activado');
 
     $('.pesoValor, .tallaValor').css({'color': 'grey'});
     $(this).css({'color': 'RGBA(142, 169, 219, 1.00'});
-    campo = e.target.className;
-    if(e.target.textContent != ""){
-        cifra =e.target.textContent};
     $('.teclado').css({'visibility': 'visible'}).animate({'height': '200px'}, 220);
+
+
+    ultimocampo = campo;
+    campo = e.target.className;
+
+    if(e.target.textContent === "--" || e.target.textContent === ''){
+        cifra = ''}
+    else {
+        cifra = e.target.textContent
+    }
+
+/*     validacion = validarDato(ultimocampo);
+    if (validacion[0] === 1){
+        $(validacion[1]).removeClass('activado').trigger('click');
+        return
+    }
+    else if (validacion[0] === 0){
+        $('.pesoValor, .tallaValor').removeClass('activado');
+    } */
+    
+
+
 });
 
 
 $('.teclado > *').click(function(e) {
     e.preventDefault(e);
+    //validarDato(ultimocampo);
     numero = e.target.textContent;
     clase = e.target.className;
 
@@ -234,7 +261,6 @@ $('.teclado > *').click(function(e) {
         añadirNumero(numero);
     }
     else if (clase === 'punto') {
-        console.log('punto');
         añadirPunto(numero);
     }
     else if (clase === 'C') {
@@ -245,7 +271,6 @@ $('.teclado > *').click(function(e) {
     }
 });
 function añadirNumero(numero){
-    console.log(cifra);
     cifra = cifra + numero;
     mostrarNumero();
 }
@@ -270,14 +295,81 @@ function mostrarNumero(){
         $('.tallaValor').text(cifra);
         talla = parseFloat(cifra);  
      }
-    calculos();
 }
+
 function salirTeclado(){
+   // ultimocampo = campo;
+
+    ultimocampo = 'pesoValor';
+    validacion = validarDato(ultimocampo);
+    if (validacion[0] === 1){
+        $(validacion[1]).removeClass('activado').trigger('click');
+        return
+    }
+    ultimocampo = 'tallaValor';
+    validacion = validarDato(ultimocampo);
+    if (validacion[0] === 1){
+        $(validacion[1]).removeClass('activado').trigger('click');
+        return
+    }
+  
+    $('.pesoValor, .tallaValor, .sexoValor, .datosPaciente .fa-times').removeClass('activado');
+
+
     $('.teclado').animate({'height': '0px'}, 200, function(){$('.teclado').css({'visibility': 'hidden'})
     });
     $('.pesoValor, .tallaValor').css({'color': 'grey'});
-    calculos();
+
+
 };
+
+function validarDato(ultimocampo) {
+    console.log('ultimo campo: ', ultimocampo);
+    console.log('campo: ', campo);
+
+    $('.pesoValor, .tallaValor').css({'color': 'grey'});
+
+
+    if (ultimocampo.includes('pesoValor') && (peso < 40 || peso > 200 || !peso)){
+        $('.sobreponer').css({'display': 'block'});
+        $('.aviso').css({'visibility': 'visible'}).animate({'opacity': '1'}, 400);
+        $('.avisoError').text('El peso no es válido');
+        campodevuelto = '.pesoValor';
+
+        $('.pesoValor, .tallaValor').addClass('activado');
+
+        return [1, campodevuelto];
+        //$('.pesoValor').css({'color': 'blue'}).focus();
+       // $('.pesoValor').trigger('click');
+    }
+    else if (ultimocampo.includes('tallaValor') && (talla < 100 || talla > 200 || !talla)){
+        $('.sobreponer').css({'display': 'block'});
+        $('.aviso').css({'visibility': 'visible'}).animate({'opacity': '1'}, 400);
+        $('.avisoError').text('La talla no es válida');
+        campodevuelto = '.tallaValor';
+        $('.pesoValor, .tallaValor').addClass('activado');
+
+        return [1, campodevuelto];
+
+    }
+    else {
+        return[0];
+    }
+
+    
+};
+/* ======================================
+Salir del mensaje de error.
+======================================== */
+$('.avisoSalir').on('click touch', function(){
+
+
+    $('.aviso').animate({'opacity': '0'}, 400,
+    function(){$('.aviso').css({'visibility': 'hidden'})}
+    );
+});
+
+
 
 /* ======================================
 Elección del peso para las necesidades
@@ -354,7 +446,6 @@ Efecto click and hold sobre las flechas
 Adjudicar el valor a las flechas pulsadas. Sirve para el click y para el click-Hold
 ============================== */
 function adjudicacionFlecha(flecha, $destino, valor ){
-    console.log('flecha ante: ',flecha)
     if(flecha === 'calorias flecha flechaArriba fas fa-chevron-up'){
         valor += 1;
         $destino.text(valor.toFixed(0));
@@ -414,7 +505,6 @@ function calculos () {
     /* =======================================
     Obtención del índice de la nutrición
     ======================================== */
-    console.log(nutricion);
     for(var i = 0; nutriciones.length -1; i++) {
         if (nutriciones[i].nombre === nutricion) {
             indice = i;
@@ -447,10 +537,7 @@ function calculos () {
     else if (imc > 50){
         requerimientosCal = [5*pesoAjustado, 10*pesoAjustado, 15*pesoAjustado, 20*pesoAjustado];
         requerimientosProt = [1.3*pesoIdeal, 1.5*pesoIdeal, 2*pesoIdeal, 2.2*pesoIdeal]; 
-
     }
-
-    console.log(peso, pesoAjustado, pesoIdeal, imc);
 
     /* =======================================
     Se añaden la prescripción individualizada según calorías y gramos de proteinas
@@ -508,12 +595,12 @@ function calculos () {
 
    
 
-    administradoCal.forEach(function(item, index, arr){
+/*     administradoCal.forEach(function(item, index, arr){
         console.log('Requerimientos día :',index, arr[index]);
     })
     administradoProt.forEach(function(item, index, arr){
         console.log('Requerimientos día :',index, arr[index]);
-    })
+    }) */
 
     /* =======================================
     Redondeo de los requerimientos de Calorías y Proteina para presentación en pantalla.
